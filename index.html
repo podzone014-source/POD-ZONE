@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,9 +13,12 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #0f0f0f;
+    background: #000;
     color: white;
 }
+
+
+/* TOPO */
 
 header {
     background: #000;
@@ -22,73 +26,160 @@ header {
     padding: 40px 20px;
 }
 
+
 .logo {
     width: 180px;
     max-width: 80%;
-    margin-bottom: 15px;
 }
 
-header h1 {
-    font-size: 45px;
-    margin: 10px 0;
-    letter-spacing: 5px;
+
+.logo-text {
+
+    font-size: 55px;
+    font-weight: bold;
+    letter-spacing: 8px;
+
+    background: linear-gradient(
+        180deg,
+        #fff2a8,
+        #d4af37,
+        #8a6a00
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow:
+    0 0 15px rgba(212,175,55,0.6);
+
 }
+
 
 header p {
-    color: #ccc;
+
+    color: #d4af37;
     font-size: 18px;
+
 }
+
+
+
+/* PRODUTOS */
 
 .container {
+
     padding: 25px;
     text-align: center;
+
 }
+
 
 .produto {
-    background: #1c1c1c;
-    padding: 20px;
+
+    background: #111;
+
+    border: 1px solid #d4af37;
+
+    padding: 25px;
+
     margin: 20px auto;
-    max-width: 320px;
+
+    max-width: 330px;
+
     border-radius: 15px;
+
 }
 
-.produto h3 {
-    font-size: 25px;
+
+.produto img {
+
+    width: 100%;
+
+    border-radius: 10px;
+
 }
 
-.produto p {
-    color: #ccc;
+
+
+.produto h2 {
+
+    color: #d4af37;
+
 }
+
+
+
+select {
+
+    width: 90%;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    margin: 15px;
+
+}
+
+
+
+/* BOTÕES */
 
 .botao {
+
     display: block;
-    max-width: 320px;
+
+    max-width: 300px;
+
     margin: 15px auto;
+
     padding: 15px;
+
     border-radius: 10px;
+
     text-decoration: none;
+
     color: white;
+
     font-weight: bold;
+
 }
 
-.instagram {
-    background: #E1306C;
-}
 
 .whatsapp {
+
     background: #25D366;
+
 }
 
-footer {
-    background: #000;
-    text-align: center;
-    padding: 20px;
-    margin-top: 30px;
+
+.instagram {
+
+    background: #E1306C;
+
 }
+
+
+
+/* RODAPÉ */
+
+footer {
+
+    background: #000;
+
+    text-align: center;
+
+    padding: 20px;
+
+    color: #aaa;
+
+}
+
 
 </style>
 
 </head>
+
 
 
 <body>
@@ -96,35 +187,94 @@ footer {
 
 <header>
 
-<img src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png" 
-alt="Logo PodZone" 
-class="logo">
 
-<h1>POD ZONE</h1>
+<img 
+src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
+class="logo"
+alt="Logo PodZone">
 
-<p>VAPE • POD • LIFESTYLE</p>
+
+<h1 class="logo-text">
+POD ZONE
+</h1>
+
+
+<p>
+🔥 PODS • SABORES • EXPERIÊNCIA 🔥
+</p>
+
 
 </header>
 
 
+
 <div class="container">
 
-<h2>Nossos Produtos</h2>
+
+<h2>Produtos</h2>
+
 
 
 <div class="produto">
 
-<h3>Pods</h3>
+
+<img 
+src="FEE94CF7-D277-4C39-93B1-54827C90ADE1.png"
+alt="IGNITE V80">
+
+
+
+<h2>
+IGNITE V80
+</h2>
+
+
+
+<h2>
+R$ 90,00
+</h2>
+
+
 
 <p>
-Confira nossos modelos disponíveis.
+Escolha o sabor:
 </p>
+
+
+
+<select>
+
+<option>FROZEN WATERMELON</option>
+
+<option>FROZEN MINT WATER</option>
+
+<option>FROZEN BLUEBERRY</option>
+
+<option>FROZEN COLA</option>
+
+<option>FROZEN STRAWBERRY</option>
+
+</select>
+
+
+
+
+<a class="botao whatsapp"
+href="https://wa.me/5511993554907">
+
+🟢 Comprar pelo WhatsApp
+
+</a>
+
+
 
 </div>
 
 
 
+
 <a class="botao instagram"
+
 href="https://www.instagram.com/podzone.oficial_/"
 target="_blank">
 
@@ -134,23 +284,17 @@ target="_blank">
 
 
 
-<a class="botao whatsapp"
-href="https://wa.me/5511993554907"
-target="_blank">
-
-💬 WhatsApp da loja
-
-</a>
-
-
 </div>
+
+
 
 
 <footer>
 
-© 2026 PodZone - Todos os direitos reservados
+© 2026 PodZone
 
 </footer>
+
 
 
 </body>
