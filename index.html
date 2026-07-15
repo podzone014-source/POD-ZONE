@@ -1,151 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pod Zone</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PodZone</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+    }
 
-body{
-    background:#111;
-    color:#fff;
-}
+    header {
+      padding: 30px 20px;
+      background: #000;
+    }
 
-header{
-    background:#ff7a00;
-    padding:20px;
-    text-align:center;
-}
+    h1 {
+      margin: 0;
+      font-size: 40px;
+    }
 
-header h1{
-    font-size:32px;
-}
+    p {
+      font-size: 18px;
+    }
 
-header p{
-    margin-top:8px;
-}
+    .container {
+      padding: 30px 20px;
+    }
 
-.busca{
-    padding:20px;
-}
+    .botao {
+      display: block;
+      max-width: 300px;
+      margin: 15px auto;
+      padding: 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      background: #222;
+      border: 1px solid #555;
+    }
 
-.busca input{
-    width:100%;
-    padding:14px;
-    border:none;
-    border-radius:10px;
-    font-size:16px;
-}
+    .instagram {
+      background: #E1306C;
+    }
 
-.produtos{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    padding:20px;
-}
+    .whatsapp {
+      background: #25D366;
+    }
 
-.card{
-    background:#1d1d1d;
-    border-radius:15px;
-    overflow:hidden;
-    text-align:center;
-    box-shadow:0 0 10px rgba(0,0,0,.4);
-}
-
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-}
-
-.card h3{
-    margin:15px 10px 5px;
-}
-
-.preco{
-    color:#ff9800;
-    font-size:24px;
-    font-weight:bold;
-    margin-bottom:15px;
-}
-
-.botao{
-    display:block;
-    background:#25D366;
-    color:white;
-    text-decoration:none;
-    padding:14px;
-    margin:15px;
-    border-radius:10px;
-    font-weight:bold;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    color:#999;
-}
-</style>
-
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: #000;
+      font-size: 14px;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<h1>POD ZONE</h1>
-<p>Os melhores pods com qualidade e confiança.</p>
+  <h1>PodZone</h1>
+  <p>Pods e acessórios</p>
 </header>
 
-<div style="text-align:center; margin:20px;">
-  <a href="https://instagram.com/podzone.oficial_" target="_blank" style="background:#E1306C; color:white; text-decoration:none; padding:15px 25px; border-radius:10px; font-size:18px; display:inline-block;">
-    📸 Siga a @podzone.oficial_
+<div class="container">
+
+  <h2>Bem-vindo à nossa loja!</h2>
+
+  <p>
+    Encontre os melhores produtos com qualidade e confiança.
+  </p>
+
+  <a class="botao instagram" 
+     href="https://www.instagram.com/podzone.oficial_/" 
+     target="_blank">
+    📷 Instagram @podzone.oficial_
   </a>
-</div>
 
-<div class="busca">
-<input type="text" placeholder="🔍 Pesquisar produtos">
-</div>
-
-<div class="produtos">
-
-<div class="card">
-<img src="https://picsum.photos/400/400?1" alt="Produto">
-<h3>Pod Ignite V80</h3>
-<p class="preco">R$ 89,90</p>
-
-<a class="botao"
-href="https://wa.me/5511993554907?text=Olá! Quero comprar o Pod Ignite V80">
-Comprar pelo WhatsApp
-</a>
-
-</div>
-
-<div class="card">
-
-<img src="https://picsum.photos/400/400?2" alt="Produto">
-
-<h3>Pod XROS 4</h3>
-
-<p class="preco">R$ 119,90</p>
-
-<a class="botao"
-href="https://wa.me/5511993554907?text=Olá! Quero comprar o Pod XROS 4">
-Comprar pelo WhatsApp
-</a>
-
-</div>
+  <a class="botao whatsapp" 
+     href="https://wa.me/" 
+     target="_blank">
+    💬 Fale conosco no WhatsApp
+  </a>
 
 </div>
 
 <footer>
-© 2026 Pod Zone
+  © 2026 PodZone - Todos os direitos reservados
 </footer>
 
 </body>
