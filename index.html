@@ -8,28 +8,35 @@
 
 <title>PodZone</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
 <style>
 
 body {
+
     margin: 0;
     font-family: Arial, sans-serif;
     background: #000;
     color: white;
+
 }
 
 
 /* TOPO */
 
 header {
-    background: #000;
+
     text-align: center;
-    padding: 40px 20px;
+    padding: 35px 20px;
+
 }
 
 
 .logo {
-    width: 180px;
-    max-width: 80%;
+
+    width: 150px;
+
 }
 
 
@@ -49,9 +56,6 @@ header {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    text-shadow:
-    0 0 15px rgba(212,175,55,0.6);
-
 }
 
 
@@ -64,38 +68,44 @@ header p {
 
 
 
-/* PRODUTOS */
+/* VITRINE */
 
 .container {
 
-    padding: 25px;
     text-align: center;
+    padding: 20px;
 
 }
+
 
 
 .produto {
 
     background: #111;
 
-    border: 1px solid #d4af37;
+    padding: 15px;
 
-    padding: 25px;
+    margin: 15px;
 
-    margin: 20px auto;
-
-    max-width: 330px;
+    width: 220px;
 
     border-radius: 15px;
 
+    display: inline-block;
+
+    vertical-align: top;
+
 }
+
 
 
 .produto img {
 
     width: 100%;
 
-    border-radius: 10px;
+    height: 220px;
+
+    object-fit: contain;
 
 }
 
@@ -111,13 +121,13 @@ header p {
 
 select {
 
-    width: 90%;
+    width: 95%;
 
-    padding: 12px;
+    padding: 10px;
 
     border-radius: 8px;
 
-    margin: 15px;
+    margin: 10px;
 
 }
 
@@ -125,37 +135,56 @@ select {
 
 /* BOTÕES */
 
+
 .botao {
 
     display: block;
 
-    max-width: 300px;
+    margin: 12px auto;
 
-    margin: 15px auto;
-
-    padding: 15px;
+    padding: 12px;
 
     border-radius: 10px;
 
     text-decoration: none;
 
-    color: white;
-
     font-weight: bold;
 
-}
-
-
-.whatsapp {
-
-    background: #25D366;
+    color: #000;
 
 }
 
 
+
+.whatsapp,
 .instagram {
 
-    background: #E1306C;
+
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #f5f5f5,
+        #b8860b
+    );
+
+
+}
+
+
+
+.botao i {
+
+    margin-right: 8px;
+
+}
+
+
+
+/* ESCONDER DETALHES */
+
+.detalhes {
+
+    display:none;
 
 }
 
@@ -165,21 +194,20 @@ select {
 
 footer {
 
-    background: #000;
+    text-align:center;
 
-    text-align: center;
+    padding:20px;
 
-    padding: 20px;
-
-    color: #aaa;
+    color:#888;
 
 }
 
 
+
 </style>
 
-</head>
 
+</head>
 
 
 <body>
@@ -190,17 +218,20 @@ footer {
 
 <img 
 src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
-class="logo"
-alt="Logo PodZone">
+class="logo">
 
 
 <h1 class="logo-text">
+
 POD ZONE
+
 </h1>
 
 
 <p>
-🔥 PODS • SABORES • EXPERIÊNCIA 🔥
+
+QUALIDADE • ESTILO • PODZONE
+
 </p>
 
 
@@ -211,33 +242,45 @@ POD ZONE
 <div class="container">
 
 
-<h2>Produtos</h2>
+<h2>
+
+Produtos
+
+</h2>
 
 
 
-<div class="produto">
+<div class="produto" onclick="abrirProduto()">
+
 
 
 <img 
-src="FEE94CF7-D277-4C39-93B1-54827C90ADE1.png"
-alt="IGNITE V80">
-
+src="FEE94CF7-D277-4C39-93B1-54827C90ADE1.png">
 
 
 <h2>
+
 IGNITE V80
+
 </h2>
 
 
 
 <h2>
+
 R$ 90,00
+
 </h2>
 
+
+
+<div class="detalhes" id="detalhes">
 
 
 <p>
+
 Escolha o sabor:
+
 </p>
 
 
@@ -262,10 +305,14 @@ Escolha o sabor:
 <a class="botao whatsapp"
 href="https://wa.me/5511993554907">
 
-🟢 Comprar pelo WhatsApp
+<i class="fa-brands fa-whatsapp"></i>
+
+Comprar pelo WhatsApp
 
 </a>
 
+
+</div>
 
 
 </div>
@@ -278,14 +325,12 @@ href="https://wa.me/5511993554907">
 href="https://www.instagram.com/podzone.oficial_/"
 target="_blank">
 
-📷 Instagram @podzone.oficial_
+
+<i class="fa-brands fa-instagram"></i>
+
+@podzone.oficial_
 
 </a>
-
-
-
-</div>
-
 
 
 
@@ -294,6 +339,20 @@ target="_blank">
 © 2026 PodZone
 
 </footer>
+
+
+
+<script>
+
+
+function abrirProduto(){
+
+document.getElementById("detalhes").style.display="block";
+
+}
+
+
+</script>
 
 
 
