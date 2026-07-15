@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IGNITE V80 - PodZone</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+
+}
+
+
+
+/* LOGO */
+
+.logo {
+
+    width: 150px;
+    margin-top: 25px;
+    cursor: pointer;
+
+}
+
+
+
+/* TITULO */
+
+.logo-text {
+
+    font-size: 45px;
+    font-weight: bold;
+    letter-spacing: 5px;
+
+    background: linear-gradient(
+        180deg,
+        #fff2a8,
+        #d4af37,
+        #8a6a00
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+
+
+.produto {
+
+    margin: 30px auto;
+    max-width: 400px;
+
+}
+
+
+
+.produto img {
+
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+
+}
+
+
+
+h1, h2 {
+
+    color: #d4af37;
+
+}
+
+
+
+select {
+
+    width: 80%;
+    padding: 15px;
+
+    border-radius: 8px;
+
+    margin: 20px;
+
+}
+
+
+
+.botao {
+
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    margin: 10px;
+
+}
+
+
+
+.whatsapp {
+
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #eeeeee
+    );
+
+    color: black;
+
+}
+
+
+
+.voltar {
+
+    background: #222;
+
+    color: white;
+
+    border: 1px solid #444;
+
+}
+
+
+
+footer {
+
+    padding: 30px;
+
+    color: #888;
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<a href="index.html">
+
+<img 
+src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
+class="logo">
+
+</a>
+
+
+
+<h1 class="logo-text">
+
+POD ZONE
+
+</h1>
+
+
+
+<div class="produto">
+
+
+<img 
+src="FEE94CF7-D277-4C39-93B1-54827C90ADE1.png"
+alt="IGNITE V80">
+
+
+
+<h1>
+
+IGNITE V80
+
+</h1>
+
+
+
+<h2>
+
+R$ 90,00
+
+</h2>
+
+
+
+<p>
+
+Escolha o sabor:
+
+</p>
+
+
+
+<select id="sabor">
+
+
+<option>FROZEN WATERMELON</option>
+
+<option>FROZEN MINT WATER</option>
+
+<option>FROZEN BLUEBERRY</option>
+
+<option>FROZEN COLA</option>
+
+<option>FROZEN STRAWBERRY</option>
+
+
+</select>
+
+
+
+<br>
+
+
+<a 
+class="botao whatsapp"
+href="#"
+onclick="comprar()">
+
+Comprar pelo WhatsApp
+
+</a>
+
+
+
+<br>
+
+
+
+<a 
+class="botao voltar"
+href="index.html">
+
+Voltar
+
+</a>
+
+
+
+</div>
+
+
+
+<footer>
+
+© 2026 PodZone
+
+</footer>
+
+
+
+<script>
+
+
+function comprar(){
+
+
+let sabor = document.getElementById("sabor").value;
+
+
+let mensagem = 
+"Olá, vim pelo site da PodZone e gostaria do IGNITE V80 sabor " 
++ sabor;
+
+
+let link = 
+"https://wa.me/5511993554907?text="
++ encodeURIComponent(mensagem);
+
+
+window.open(link, "_blank");
+
+
+}
+
+
+</script>
+
+
+
+</body>
+
+</html>
