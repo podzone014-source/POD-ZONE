@@ -230,11 +230,52 @@ footer {
     overflow: hidden;
 }
 
-.carrossel img {
-    width: 100%;
+.slides {
+    display: flex;
+    width: 400%;
+    animation: deslizar 16s infinite;
+}
+
+.slides img {
+    width: 25%;
     height: 300px;
     object-fit: cover;
-    display: block;
+}
+
+@keyframes deslizar {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(0);
+    }
+
+    30% {
+        transform: translateX(-25%);
+    }
+
+    55% {
+        transform: translateX(-25%);
+    }
+
+    60% {
+        transform: translateX(-50%);
+    }
+
+    85% {
+        transform: translateX(-50%);
+    }
+
+    90% {
+        transform: translateX(-75%);
+    }
+
+    100% {
+        transform: translateX(-75%);
+    }
+
 }
 
 </style>
