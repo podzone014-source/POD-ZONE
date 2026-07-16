@@ -421,21 +421,27 @@ Instagram
 </footer>
 
 <script>
-const buscar = document.getElementById("buscar");
+document.addEventListener("DOMContentLoaded", function () {
 
-buscar.addEventListener("keyup", function () {
-
-    const filtro = buscar.value.toLowerCase();
+    const buscar = document.getElementById("buscar");
     const produtos = document.querySelectorAll(".produto");
 
-    produtos.forEach(produto => {
-        const texto = produto.textContent.toLowerCase();
+    buscar.addEventListener("input", function () {
 
-        if (texto.includes(filtro)) {
-            produto.style.display = "";
-        } else {
-            produto.style.display = "none";
-        }
+        const filtro = buscar.value.toLowerCase();
+
+        produtos.forEach(function(produto) {
+
+            const texto = produto.textContent.toLowerCase();
+
+            if (texto.includes(filtro)) {
+                produto.style.display = "block";
+            } else {
+                produto.style.display = "none";
+            }
+
+        });
+
     });
 
 });
