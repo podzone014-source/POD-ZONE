@@ -386,45 +386,6 @@ Instagram
 
 </footer>
 
-<script>
-
-let indice = 0;
-let startX = 0;
-let endX = 0;
-
-const slides = document.querySelector('.slides');
-
-slides.addEventListener('touchstart', function(e) {
-    startX = e.touches[0].clientX;
-});
-
-slides.addEventListener('touchend', function(e) {
-
-    endX = e.changedTouches[0].clientX;
-
-    if (startX - endX > 50) {
-        indice++;
-
-        if (indice > 3) {
-            indice = 3;
-        }
-
-        slides.style.transform = `translateX(-${indice * 25}%)`;
-    }
-
-    if (endX - startX > 50) {
-        indice--;
-
-        if (indice < 0) {
-            indice = 0;
-        }
-
-        slides.style.transform = `translateX(-${indice * 25}%)`;
-    }
-
-});
-
-</script>
 
 </body>
 
