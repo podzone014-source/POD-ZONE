@@ -271,6 +271,38 @@ footer {
 
 }
 
+/* ===== BARRA DE PESQUISA ===== */
+
+.pesquisa {
+    display: flex;
+    justify-content: center;
+    margin: 30px 15px;
+}
+
+.pesquisa input {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px 20px;
+    background: #111;
+    color: #fff;
+    border: 2px solid #FFD700;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box;
+}
+
+.pesquisa input::placeholder {
+    color: #aaa;
+}
+
+.pesquisa input:focus {
+    border-color: #FFD700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+    transform: scale(1.02);
+}
+
 </style>
 
 </head>
@@ -303,6 +335,10 @@ QUALIDADE • ESTILO • PODZONE
     <img src="defb5532-c74a-4341-a461-6443efb0b3f4.jpeg">
 </div>
 
+<div class="pesquisa">
+    <input type="text" id="buscar" placeholder="🔍 Pesquise um sabor ou modelo...">
+</div>
+
 <div class="container">
 
 
@@ -311,8 +347,6 @@ QUALIDADE • ESTILO • PODZONE
 Produtos
 
 </h2>
-
-
 
 <a href="ignite-v80.html" style="text-decoration:none;">
 
@@ -386,6 +420,26 @@ Instagram
 
 </footer>
 
+<script>
+const buscar = document.getElementById("buscar");
+
+buscar.addEventListener("keyup", function () {
+
+    const filtro = buscar.value.toLowerCase();
+    const produtos = document.querySelectorAll(".produto");
+
+    produtos.forEach(produto => {
+        const texto = produto.textContent.toLowerCase();
+
+        if (texto.includes(filtro)) {
+            produto.style.display = "";
+        } else {
+            produto.style.display = "none";
+        }
+    });
+
+});
+</script>
 
 </body>
 
