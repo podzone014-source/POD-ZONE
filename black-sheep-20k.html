@@ -6,9 +6,125 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BLACK SHEEP 20K</title>
+<title>BLACK SHEEP 20K - PodZone</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+
+.logo {
+
+    width: 150px;
+    margin-top: 25px;
+    cursor: pointer;
+
+}
+
+
+.logo-text {
+
+    font-size: 45px;
+    font-weight: bold;
+    letter-spacing: 5px;
+
+}
+
+
+.produto {
+
+    margin: 30px auto;
+    max-width: 400px;
+
+}
+
+
+.produto img {
+
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+
+}
+
+
+h1, h2 {
+
+    color: #d4af37;
+
+}
+
+
+.botao {
+
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px;
+
+}
+
+
+.whatsapp {
+
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #eeeeee
+    );
+
+    color: black;
+
+}
+
+
+.voltar {
+
+    background: #222;
+    color: white;
+    border: 1px solid #444;
+
+}
+
+
+footer {
+
+    padding: 30px;
+    color: #ddd;
+
+}
+
+
+.beneficios {
+
+    text-align: center;
+    color: #ddd;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 20px;
+
+}
+
+
+.beneficios p {
+
+    margin: 5px 0;
+
+}
+
+</style>
 
 </head>
 
@@ -16,41 +132,108 @@
 <body>
 
 
-<div class="container">
+<a href="index.html">
+
+<img 
+src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
+class="logo">
+
+</a>
 
 
-<h1>
-BLACK SHEEP 20K
-</h1>
+
+<div class="produto">
 
 
 <img 
 src="DB2EE04E-5EA4-4A61-8826-F60C38B074B8.png"
-alt="BLACK SHEEP 20K"
-style="width:250px;">
+alt="BLACK SHEEP 20K">
+
+
+<h1>
+
+BLACK SHEEP 20K
+
+</h1>
 
 
 <h2>
-BLACK SHEEP 20K
+
+⏳ Estoque chegando
+
 </h2>
 
 
 <p>
-⏳ Estoque chegando
-</p>
 
-
-<p>
 Sabores indisponíveis
+
 </p>
 
 
-<a href="index.html">
-Voltar aos produtos
+
+<a 
+class="botao whatsapp"
+href="#"
+onclick="comprar()">
+
+Consultar disponibilidade
+
+</a>
+
+
+
+<br>
+
+
+<a 
+class="botao voltar"
+href="index.html">
+
+Voltar
+
 </a>
 
 
 </div>
+
+
+
+<footer>
+
+© 2026 PodZone
+
+<div class="beneficios">
+
+<p>✅ Produto original</p>
+
+<p>🚚 Envio rápido</p>
+
+<p>📲 Atendimento via WhatsApp e Instagram</p>
+
+</div>
+
+</footer>
+
+
+
+<script>
+
+function comprar(){
+
+let mensagem =
+"Olá, vim pelo site da PodZone e gostaria de saber sobre o BLACK SHEEP 20K";
+
+let link =
+"https://wa.me/5511993554907?text="
++ encodeURIComponent(mensagem);
+
+
+window.open(link, "_blank");
+
+}
+
+</script>
 
 
 </body>
