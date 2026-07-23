@@ -14,14 +14,20 @@
     box-sizing: border-box;
 }
 
+
 body {
+
     margin: 0;
     background: #000;
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
+
 }
 
+
+
+/* LOGO */
 
 .logo {
 
@@ -32,14 +38,8 @@ body {
 }
 
 
-.logo-text {
 
-    font-size: 45px;
-    font-weight: bold;
-    letter-spacing: 5px;
-
-}
-
+/* PRODUTO */
 
 .produto {
 
@@ -58,6 +58,7 @@ body {
 }
 
 
+
 h1, h2 {
 
     color: #d4af37;
@@ -65,16 +66,59 @@ h1, h2 {
 }
 
 
+
+/* ESCOLHER SABOR */
+
+select {
+
+    width: 80%;
+    padding: 14px;
+
+    background: #111;
+    color: #ffffff;
+
+    border: 2px solid #d4af37;
+    border-radius: 12px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    outline: none;
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+select:focus {
+
+    border-color: #f5d76e;
+
+    box-shadow: 0 0 12px rgba(212,175,55,0.6);
+
+}
+
+
+
+/* BOTÕES */
+
 .botao {
 
     display: inline-block;
+
     padding: 15px 25px;
+
     border-radius: 10px;
+
     text-decoration: none;
+
     font-weight: bold;
+
     margin: 10px;
 
 }
+
 
 
 .whatsapp {
@@ -90,18 +134,25 @@ h1, h2 {
 }
 
 
+
 .voltar {
 
     background: #222;
+
     color: white;
+
     border: 1px solid #444;
 
 }
 
 
+
+/* FOOTER */
+
 footer {
 
     padding: 30px;
+
     color: #ddd;
 
 }
@@ -110,9 +161,13 @@ footer {
 .beneficios {
 
     text-align: center;
+
     color: #ddd;
+
     font-size: 12px;
+
     line-height: 1.8;
+
     margin-top: 20px;
 
 }
@@ -127,6 +182,7 @@ footer {
 </style>
 
 </head>
+
 
 
 <body>
@@ -150,11 +206,13 @@ src="10E271C5-6530-4777-8AD5-D6409D2DDD07.png"
 alt="ELFBAR TE30K">
 
 
+
 <h1>
 
 ELFBAR TE30K
 
 </h1>
+
 
 
 <h2>
@@ -164,25 +222,46 @@ R$ 104,90
 </h2>
 
 
+
 <p>
+
 Escolha o sabor:
+
 </p>
+
+
 
 <select id="sabor" name="sabor">
 
-    <option value="">Selecione um sabor</option>
 
-    <option value="PEACH MANGO WATERMELON">
-        🍉 PEACH MANGO WATERMELON
-    </option>
+<option value="">
 
-    <option value="BLUEBERRY SOUR RASPBERRY">
-        🫐 BLUEBERRY SOUR RASPBERRY
-    </option>
+Selecione um sabor
+
+</option>
+
+
+<option value="PEACH MANGO WATERMELON">
+
+🍉 PEACH MANGO WATERMELON
+
+</option>
+
+
+<option value="BLUEBERRY SOUR RASPBERRY">
+
+🫐 BLUEBERRY SOUR RASPBERRY
+
+</option>
+
 
 </select>
 
+
+
 <br>
+
+
 
 <a
 class="botao whatsapp"
@@ -193,7 +272,11 @@ Comprar pelo WhatsApp
 
 </a>
 
+
+
 <br>
+
+
 
 <a
 class="botao voltar"
@@ -204,6 +287,7 @@ Voltar
 </a>
 
 
+
 </div>
 
 
@@ -211,6 +295,7 @@ Voltar
 <footer>
 
 © 2026 PodZone
+
 
 <div class="beneficios">
 
@@ -222,27 +307,46 @@ Voltar
 
 </div>
 
+
 </footer>
+
 
 
 
 <script>
 
+
 function comprar(){
 
+
+let sabor = document.getElementById("sabor").value;
+
+
+
 let mensagem =
-"Olá, vim pelo site da PodZone e gostaria de saber sobre o ELFBAR TE30K";
+
+"Olá, vim pelo site da PodZone e gostaria do ELFBAR TE30K sabor "
+
++ sabor;
+
+
 
 let link =
+
 "https://wa.me/5511993554907?text="
+
 + encodeURIComponent(mensagem);
+
 
 
 window.open(link, "_blank");
 
+
 }
 
+
 </script>
+
 
 
 </body>
