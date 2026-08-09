@@ -43,7 +43,7 @@ body {
     object-fit: contain;
 }
 
-/* TITULOS */
+/* TÍTULOS */
 
 h1, h2 {
     color: #d4af37;
@@ -57,28 +57,35 @@ h2 {
     margin-top: 5px;
 }
 
-/* BOTAO VOLTAR */
+/* BOTÕES */
+
+.botao {
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px;
+}
+
+/* WHATSAPP */
+
+.whatsapp {
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #eeeeee
+    );
+
+    color: black;
+}
+
+/* VOLTAR */
 
 .voltar {
-    display: inline-block;
-
-    padding: 15px 25px;
-
-    border-radius: 10px;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    margin: 20px 10px;
-
     background: #222;
-
     color: white;
-
     border: 1px solid #444;
-
-    transition: 0.3s;
 }
 
 .voltar:hover {
@@ -86,17 +93,13 @@ h2 {
     color: #d4af37;
 }
 
-/* BENEFICIOS */
+/* BENEFÍCIOS */
 
 .beneficios {
     text-align: center;
-
     color: #ddd;
-
     font-size: 12px;
-
     line-height: 1.8;
-
     margin-top: 20px;
 }
 
@@ -108,7 +111,6 @@ h2 {
 
 footer {
     padding: 30px;
-
     color: #ddd;
 }
 
@@ -151,9 +153,21 @@ R$ 95,00
 </h2>
 
 
+<a
+class="botao whatsapp"
+href="#"
+onclick="comprar()">
+
+Comprar pelo WhatsApp
+
+</a>
+
+
+<br>
+
 
 <a
-class="voltar"
+class="botao voltar"
 href="index.html">
 
 Voltar
@@ -179,6 +193,24 @@ Voltar
 </div>
 
 </footer>
+
+
+<script>
+
+function comprar(){
+
+let mensagem =
+"Olá, vim pelo site da PodZone e gostaria do WAKA 70K.";
+
+let link =
+"https://wa.me/5511993554907?text="
++ encodeURIComponent(mensagem);
+
+window.open(link, "_blank");
+
+}
+
+</script>
 
 
 </body>
