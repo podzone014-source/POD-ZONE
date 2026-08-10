@@ -59,28 +59,36 @@ h2 {
     margin: 10px 0;
 }
 
-/* BOTÃO VOLTAR */
+/* BOTÕES */
 
+.whatsapp,
 .voltar {
     display: inline-block;
-
     padding: 15px 30px;
-
     border-radius: 10px;
-
     text-decoration: none;
-
     font-weight: bold;
+    margin: 10px;
+}
 
-    margin-top: 25px;
+/* WHATSAPP */
 
+.whatsapp {
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #eeeeee
+    );
+
+    color: black;
+}
+
+/* VOLTAR */
+
+.voltar {
     background: #222;
-
     color: white;
-
     border: 1px solid #444;
-
-    transition: 0.3s;
 }
 
 .voltar:hover {
@@ -144,6 +152,19 @@ R$ 16,99
 
 
 <a
+class="whatsapp"
+href="#"
+onclick="contato()">
+
+Falar pelo WhatsApp
+
+</a>
+
+
+<br>
+
+
+<a
 class="voltar"
 href="index.html">
 
@@ -175,10 +196,10 @@ Voltar
 
 <script>
 
-function comprar(){
+function contato(){
 
 let mensagem =
-"Olá, vim pelo site da PodZone e gostaria do WAKA 70K.";
+"Olá, vim pelo site da PodZone e gostaria de informações sobre o TABACO CREMA BLEND.";
 
 let link =
 "https://wa.me/5511993554907?text="
