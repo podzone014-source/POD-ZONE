@@ -57,7 +57,7 @@ h2 {
     margin-top: 5px;
 }
 
-/* VOLTAR */
+/* BOTÕES */
 
 .botao {
     display: inline-block;
@@ -67,6 +67,20 @@ h2 {
     font-weight: bold;
     margin: 10px;
 }
+
+/* WHATSAPP */
+
+.whatsapp {
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #eeeeee
+    );
+
+    color: black;
+}
+
+/* VOLTAR */
 
 .voltar {
     background: #222;
@@ -140,6 +154,19 @@ R$ 105,00
 
 
 <a
+class="botao whatsapp"
+href="#"
+onclick="contato()">
+
+Falar pelo WhatsApp
+
+</a>
+
+
+<br>
+
+
+<a
 class="botao voltar"
 href="index.html">
 
@@ -170,10 +197,10 @@ Voltar
 
 <script>
 
-function comprar(){
+function contato(){
 
 let mensagem =
-"Olá, vim pelo site da PodZone e gostaria do WAKA 70K.";
+"Olá, vim pelo site da PodZone e gostaria de informações sobre o ELFBAR BC PRO 45K.";
 
 let link =
 "https://wa.me/5511993554907?text="
