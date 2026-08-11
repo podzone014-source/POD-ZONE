@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ELFBAR BC PRO 45K - PodZone</title>
+<title>ELFBAR BC 15K - PodZone</title>
 
 <style>
 
@@ -22,6 +22,7 @@ body {
     text-align: center;
 }
 
+
 /* LOGO */
 
 .logo {
@@ -30,12 +31,31 @@ body {
     cursor: pointer;
 }
 
-/* PRODUTO */
+
+/* TITULO */
+
+.logo-text {
+    font-size: 45px;
+    font-weight: bold;
+    letter-spacing: 5px;
+
+    background: linear-gradient(
+        180deg,
+        #fff2a8,
+        #d4af37,
+        #8a6a00
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 
 .produto {
     margin: 30px auto;
     max-width: 400px;
 }
+
 
 .produto img {
     width: 100%;
@@ -43,32 +63,26 @@ body {
     object-fit: contain;
 }
 
-/* TÍTULOS */
 
 h1, h2 {
     color: #d4af37;
 }
 
-h1 {
-    margin-bottom: 5px;
-}
-
-h2 {
-    margin-top: 5px;
-}
-
-/* BOTÕES */
 
 .botao {
     display: inline-block;
+
     padding: 15px 25px;
+
     border-radius: 10px;
+
     text-decoration: none;
+
     font-weight: bold;
+
     margin: 10px;
 }
 
-/* WHATSAPP */
 
 .whatsapp {
     background: linear-gradient(
@@ -80,35 +94,35 @@ h2 {
     color: black;
 }
 
-/* VOLTAR */
 
 .voltar {
     background: #222;
+
     color: white;
+
     border: 1px solid #444;
 }
 
-.voltar:hover {
-    border-color: #d4af37;
-    color: #d4af37;
-}
-
-/* FOOTER */
 
 footer {
     padding: 30px;
+
     color: #ddd;
 }
 
-/* BENEFÍCIOS */
 
 .beneficios {
     text-align: center;
+
     color: #ddd;
+
     font-size: 12px;
+
     line-height: 1.8;
+
     margin-top: 20px;
 }
+
 
 .beneficios p {
     margin: 5px 0;
@@ -118,15 +132,15 @@ footer {
 
 </head>
 
+
 <body>
 
 
 <a href="index.html">
 
-<img
+<img 
 src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
-class="logo"
-alt="PodZone">
+class="logo">
 
 </a>
 
@@ -134,29 +148,29 @@ alt="PodZone">
 <div class="produto">
 
 
-<img
-src="8A896DC2-0684-43A8-AE43-703CF5AD6D9D.png"
-alt="ELFBAR BC PRO 45K">
+<img 
+src="3D1EEB51-0607-48B5-97ED-8E8D33394363.png"
+alt="ELFBAR BC 15K">
 
 
 <h1>
 
-ELFBAR BC PRO 45K
+ELFBAR BC 15K
 
 </h1>
 
 
 <h2>
 
-R$ 105,00
+R$ 74,90
 
 </h2>
 
 
-<a
+<a 
 class="botao whatsapp"
 href="#"
-onclick="contato()">
+onclick="comprar()">
 
 Comprar pelo WhatsApp
 
@@ -166,7 +180,7 @@ Comprar pelo WhatsApp
 <br>
 
 
-<a
+<a 
 class="botao voltar"
 href="index.html">
 
@@ -197,16 +211,16 @@ Voltar
 
 <script>
 
-function contato(){
+function comprar() {
 
-let mensagem =
-"Olá, vim pelo site da PodZone e gostaria de informações sobre o ELFBAR BC PRO 45K.";
+    let mensagem = 
+    "Olá, vim pelo site da PodZone e gostaria do ELFBAR BC 15K.";
 
-let link =
-"https://wa.me/5511993554907?text="
-+ encodeURIComponent(mensagem);
+    let link = 
+    "https://wa.me/5511993554907?text="
+    + encodeURIComponent(mensagem);
 
-window.open(link, "_blank");
+    window.open(link, "_blank");
 
 }
 
