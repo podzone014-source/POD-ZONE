@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>IGNITE V250 - PodZone</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+
+/* LOGO */
+
+.logo {
+    width: 150px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+
+/* TITULO */
+
+.logo-text {
+    font-size: 45px;
+    font-weight: bold;
+    letter-spacing: 5px;
+
+    background: linear-gradient(
+        180deg,
+        #fff2a8,
+        #d4af37,
+        #8a6a00
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.produto {
+    margin: 30px auto;
+    max-width: 400px;
+}
+
+
+.produto img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+}
+
+
+h1, h2 {
+    color: #d4af37;
+}
+
+
+.botao {
+    display: inline-block;
+
+    padding: 15px 25px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    margin: 10px;
+}
+
+
+.whatsapp {
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #eeeeee
+    );
+
+    color: black;
+}
+
+
+.voltar {
+    background: #222;
+
+    color: white;
+
+    border: 1px solid #444;
+}
+
+
+footer {
+    padding: 30px;
+
+    color: #ddd;
+}
+
+
+.beneficios {
+    text-align: center;
+
+    color: #ddd;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    margin-top: 20px;
+}
+
+
+.beneficios p {
+    margin: 5px 0;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<a href="index.html">
+
+<img 
+src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
+class="logo">
+
+</a>
+
+
+<div class="produto">
+
+
+<img 
+src="409FFE50-05CB-4E8C-8366-B714AF67E16E.png"
+alt="IGNITE V250">
+
+
+<h1>
+
+IGNITE V250
+
+</h1>
+
+
+<h2>
+
+R$ 99,90
+
+</h2>
+
+
+<a 
+class="botao whatsapp"
+href="#"
+onclick="comprar()">
+
+Comprar pelo WhatsApp
+
+</a>
+
+
+<br>
+
+
+<a 
+class="botao voltar"
+href="index.html">
+
+Voltar
+
+</a>
+
+
+</div>
+
+
+<footer>
+
+© 2026 PodZone
+
+<div class="beneficios">
+
+<p>✅ Produto original</p>
+
+<p>🚚 Envio rápido</p>
+
+<p>📲 Atendimento via WhatsApp e Instagram</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+function comprar() {
+
+    let mensagem = 
+    "Olá, vim pelo site da PodZone e gostaria do IGNITE V250.";
+
+    let link = 
+    "https://wa.me/5511993554907?text="
+    + encodeURIComponent(mensagem);
+
+    window.open(link, "_blank");
+
+}
+
+</script>
+
+
+</body>
+
+</html>
