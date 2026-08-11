@@ -22,19 +22,35 @@ body {
     text-align: center;
 }
 
-header {
-    padding: 20px;
-}
+/* LOGO */
 
 .logo {
     width: 150px;
-    margin-bottom: 10px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+/* TITULO */
+
+.logo-text {
+    font-size: 45px;
+    font-weight: bold;
+    letter-spacing: 5px;
+
+    background: linear-gradient(
+        180deg,
+        #fff2a8,
+        #d4af37,
+        #8a6a00
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .produto {
-    max-width: 400px;
     margin: 30px auto;
-    padding: 20px;
+    max-width: 400px;
 }
 
 .produto img {
@@ -43,65 +59,65 @@ header {
     object-fit: contain;
 }
 
-h1 {
+h1, h2 {
     color: #d4af37;
-    font-size: 28px;
-    margin: 20px 0 10px;
 }
 
-h2 {
-    color: #d4af37;
-    font-size: 24px;
-    margin: 10px 0 25px;
-}
+/* BOTÕES */
 
 .botao {
     display: inline-block;
+
     padding: 15px 25px;
+
     border-radius: 10px;
+
     text-decoration: none;
+
     font-weight: bold;
+
     margin: 10px;
-    cursor: pointer;
-    border: none;
-    font-size: 16px;
 }
 
 .whatsapp {
-    background: linear-gradient(135deg, #d4af37, #f5d76e);
-    color: #000;
-}
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #eeeeee
+    );
 
-.whatsapp:hover {
-    transform: scale(1.05);
+    color: black;
 }
 
 .voltar {
-    background: #111;
+    background: #222;
+
     color: white;
-    border: 1px solid #333;
+
+    border: 1px solid #444;
 }
 
-.voltar:hover {
-    background: #d4af37;
-    color: #000;
+/* RODAPÉ */
+
+footer {
+    padding: 30px;
+    color: #ddd;
 }
 
 .beneficios {
-    max-width: 400px;
-    margin: 20px auto 40px;
-    padding: 20px;
+    text-align: center;
+
+    color: #ddd;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    margin-top: 20px;
 }
 
 .beneficios p {
-    margin: 10px 0;
-    color: #ccc;
-}
-
-footer {
-    padding: 20px;
-    color: #777;
-    font-size: 13px;
+    margin: 5px 0;
 }
 
 </style>
@@ -110,75 +126,76 @@ footer {
 
 <body>
 
-<header>
-
 <a href="index.html">
-    <img src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
-         alt="PodZone"
-         class="logo">
+
+<img 
+src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
+class="logo">
+
 </a>
 
-</header>
-
-
-<main>
 
 <div class="produto">
 
-<img src="3D1EEB51-0607-48B5-97ED-8E8D33394363.png"
-     alt="ELFBAR BC 15K">
+<img 
+src="3D1EEB51-0607-48B5-97ED-8E8D33394363.png"
+alt="ELFBAR BC 15K">
 
-<h1>ELFBAR BC 15K</h1>
 
-<h2>R$ 74,90</h2>
+<h1>
 
-<button class="botao whatsapp" onclick="comprarWhatsApp()">
-    Comprar pelo WhatsApp
-</button>
+ELFBAR BC 15K
+
+</h1>
+
+
+<h2>
+
+R$ 74,90
+
+</h2>
+
+
+<a 
+class="botao whatsapp"
+href="#">
+
+Comprar pelo WhatsApp
+
+</a>
+
 
 <br>
 
-<a href="index.html" class="botao voltar">
-    Voltar
+
+<a 
+class="botao voltar"
+href="index.html">
+
+Voltar
+
 </a>
 
-</div>
-
-
-<div class="beneficios">
-
-<p>✓ Produto selecionado pela POD ZONE</p>
-<p>✓ Atendimento pelo WhatsApp</p>
-<p>✓ Compra rápida e segura</p>
 
 </div>
-
-</main>
 
 
 <footer>
 
-POD ZONE © 2026
+© 2026 PodZone
+
+<div class="beneficios">
+
+<p>✅ Produto original</p>
+
+<p>🚚 Envio rápido</p>
+
+<p>📲 Atendimento via WhatsApp e Instagram</p>
+
+</div>
 
 </footer>
 
-
-<script>
-
-function comprarWhatsApp() {
-
-    let mensagem =
-        "Olá, vim pelo site da PodZone e gostaria do ELFBAR BC 15K.";
-
-    let link =
-        "https://wa.me/5511993554907?text=" +
-        encodeURIComponent(mensagem);
-
-    window.open(link, "_blank");
-
-}
-
-</script>
 
 </body>
 
