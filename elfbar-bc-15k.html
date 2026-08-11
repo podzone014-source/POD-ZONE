@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ELFBAR BC 15K - PodZone</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+header {
+    padding: 20px;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+.produto {
+    max-width: 400px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.produto img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+}
+
+h1 {
+    color: #d4af37;
+    font-size: 28px;
+    margin: 20px 0 10px;
+}
+
+h2 {
+    color: #d4af37;
+    font-size: 24px;
+    margin: 10px 0 25px;
+}
+
+.botao {
+    display: inline-block;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+}
+
+.whatsapp {
+    background: linear-gradient(135deg, #d4af37, #f5d76e);
+    color: #000;
+}
+
+.whatsapp:hover {
+    transform: scale(1.05);
+}
+
+.voltar {
+    background: #111;
+    color: white;
+    border: 1px solid #333;
+}
+
+.voltar:hover {
+    background: #d4af37;
+    color: #000;
+}
+
+.beneficios {
+    max-width: 400px;
+    margin: 20px auto 40px;
+    padding: 20px;
+}
+
+.beneficios p {
+    margin: 10px 0;
+    color: #ccc;
+}
+
+footer {
+    padding: 20px;
+    color: #777;
+    font-size: 13px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<a href="index.html">
+    <img src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
+         alt="PodZone"
+         class="logo">
+</a>
+
+</header>
+
+
+<main>
+
+<div class="produto">
+
+<img src="3D1EEB51-0607-48B5-97ED-8E8D33394363.png"
+     alt="ELFBAR BC 15K">
+
+<h1>ELFBAR BC 15K</h1>
+
+<h2>R$ 74,90</h2>
+
+<button class="botao whatsapp" onclick="comprarWhatsApp()">
+    Comprar pelo WhatsApp
+</button>
+
+<br>
+
+<a href="index.html" class="botao voltar">
+    Voltar
+</a>
+
+</div>
+
+
+<div class="beneficios">
+
+<p>✓ Produto selecionado pela POD ZONE</p>
+<p>✓ Atendimento pelo WhatsApp</p>
+<p>✓ Compra rápida e segura</p>
+
+</div>
+
+</main>
+
+
+<footer>
+
+POD ZONE © 2026
+
+</footer>
+
+
+<script>
+
+function comprarWhatsApp() {
+
+    let mensagem =
+        "Olá, vim pelo site da PodZone e gostaria do ELFBAR BC 15K.";
+
+    let link =
+        "https://wa.me/5511993554907?text=" +
+        encodeURIComponent(mensagem);
+
+    window.open(link, "_blank");
+
+}
+
+</script>
+
+</body>
+
+</html>
