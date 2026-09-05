@@ -1,1111 +1,1275 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070707">
-<meta name="description" content="PodZone — catálogo informativo. Acesso destinado exclusivamente a maiores de 18 anos.">
-<title>PodZone | Catálogo</title>
-<style>
-:root{
-    --gold:#d4af37;
-    --gold2:#f5df83;
-    --bg:#060606;
-    --panel:#101010;
-    --line:rgba(212,175,55,.22);
-    --muted:#9d9d9d;
-    --white:#f7f5ee;
-}
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
-html{
-    scroll-behavior:smooth;
-}
-body{
-    background:
-        radial-gradient(
-            circle at 50% -10%,
-            rgba(212,175,55,.13),
-            transparent 35%
-        ),
-        var(--bg);
-    color:var(--white);
-    font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-    min-height:100vh;
-}
-body:before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background-image:
-        linear-gradient(
-            rgba(255,255,255,.018) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(255,255,255,.018) 1px,
-            transparent 1px
-        );
-    background-size:42px 42px;
-    mask-image:
-        linear-gradient(
-            to bottom,
-            #000,
-            transparent 75%
-        );
-}
-a{
-    color:inherit;
-    text-decoration:none;
-}
-/* =========================
-   18+ AGE GATE
-========================= */
-.age-gate{
-    position:fixed;
-    z-index:1000;
-    inset:0;
-    background:rgba(0,0,0,.94);
-    backdrop-filter:blur(14px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:22px;
-}
-.age-box{
-    width:min(440px,100%);
-    border:1px solid var(--line);
-    background:
-        linear-gradient(
-            145deg,
-            #151515,
-            #080808
-        );
-    border-radius:28px;
-    padding:34px 26px;
-    text-align:center;
-    box-shadow:
-        0 25px 80px #000;
-}
-.age-mark{
-    width:72px;
-    height:72px;
-    margin:0 auto 20px;
-    border:1px solid var(--gold);
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    color:var(--gold2);
-    font-weight:900;
-    font-size:24px;
-}
-.age-box h1{
-    font-size:28px;
-    letter-spacing:3px;
-    margin-bottom:12px;
-}
-.age-box p{
-    color:var(--muted);
-    line-height:1.6;
-    font-size:14px;
-}
-.age-actions{
-    display:flex;
-    gap:10px;
-    margin-top:25px;
-}
-.age-actions button{
-    flex:1;
-    padding:14px;
-    border-radius:12px;
-    border:1px solid var(--line);
-    cursor:pointer;
-    font-weight:800;
-}
-.enter{
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold2),
-            var(--gold)
-        );
-    color:#080808;
-}
-.leave{
-    background:#151515;
-    color:#aaa;
-}
-/* =========================
-   HEADER
-========================= */
-header{
-    position:sticky;
-    top:0;
-    z-index:20;
-    border-bottom:
-        1px solid rgba(255,255,255,.07);
-    background:
-        rgba(6,6,6,.78);
-    backdrop-filter:blur(18px);
-}
-.nav{
-    width:min(1120px,calc(100% - 32px));
-    height:76px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-.logo{
-    width:112px;
-}
-.nav-links{
-    display:flex;
-    gap:24px;
-    color:#bcbcbc;
-    font-size:13px;
-}
-.nav-links a:hover{
-    color:var(--gold2);
-}
-/* =========================
-   HERO
-========================= */
-.hero{
-    width:min(1120px,calc(100% - 32px));
-    margin:auto;
-    min-height:520px;
-    display:grid;
-    place-items:center;
-    text-align:center;
-    padding:70px 0 55px;
-    position:relative;
-}
-.hero:after{
-    content:"";
-    position:absolute;
-    width:340px;
-    height:340px;
-    border-radius:50%;
-    background:
-        rgba(212,175,55,.09);
-    filter:blur(70px);
-    z-index:-1;
-}
-.hero-logo{
-    width:min(250px,65vw);
-    margin-bottom:25px;
-    filter:
-        drop-shadow(
-            0 10px 35px
-            rgba(212,175,55,.12)
-        );
-}
-.eyebrow{
-    font-size:11px;
-    letter-spacing:5px;
-    color:var(--gold);
-    font-weight:800;
-    margin-bottom:14px;
-}
-.hero h1{
-    font-size:
-        clamp(
-            38px,
-            7vw,
-            72px
-        );
-    line-height:.98;
-    letter-spacing:-3px;
-}
-.hero h1 span{
-    background:
-        linear-gradient(
-            110deg,
-            #fff,
-            var(--gold2),
-            #a77e12
-        );
-    -webkit-background-clip:text;
-    color:transparent;
-}
-.hero p{
-    max-width:610px;
-    margin:20px auto 28px;
-    color:#aaa;
-    line-height:1.7;
-}
-.hero-cta{
-    display:inline-flex;
-    padding:14px 22px;
-    border:1px solid var(--line);
-    border-radius:999px;
-    color:#0b0b0b;
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold2),
-            var(--gold)
-        );
-    font-weight:900;
-    font-size:13px;
-}
-/* =========================
-   BANNER
-========================= */
-.banner{
-    width:min(1120px,calc(100% - 32px));
-    margin:0 auto 70px;
-    border:1px solid var(--line);
-    border-radius:26px;
-    overflow:hidden;
-    background:#0c0c0c;
-}
-.banner img{
-    width:100%;
-    height:300px;
-    object-fit:cover;
-    display:block;
-}
-/* =========================
-   SECTIONS
-========================= */
-.section{
-    width:min(1120px,calc(100% - 32px));
-    margin:auto;
-    padding:20px 0 70px;
-}
-.section-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
-    gap:20px;
-    margin-bottom:25px;
-}
-.kicker{
-    color:var(--gold);
-    font-size:10px;
-    letter-spacing:4px;
-    font-weight:900;
-}
-.section h2{
-    font-size:32px;
-    margin-top:8px;
-}
-.section-head p{
-    color:#777;
-    font-size:13px;
-}
-/* =========================
-   SEARCH
-========================= */
-.search{
-    margin-bottom:22px;
-}
-.search input{
-    width:100%;
-    padding:16px 18px;
-    border:1px solid #242424;
-    background:#0c0c0c;
-    color:#fff;
-    border-radius:14px;
-    outline:none;
-    font-size:14px;
-}
-.search input:focus{
-    border-color:var(--gold);
-    box-shadow:
-        0 0 0 3px
-        rgba(212,175,55,.08);
-}
-/* =========================
-   PRODUCTS
-========================= */
-.grid{
-    display:grid;
-    grid-template-columns:
-        repeat(4,1fr);
-    gap:14px;
-}
-.card{
-    display:block;
-    border:1px solid #1d1d1d;
-    background:
-        linear-gradient(
-            160deg,
-            #151515,
-            #0b0b0b
-        );
-    border-radius:20px;
-    overflow:hidden;
-    transition:.3s;
-    min-width:0;
-}
-.card:hover{
-    transform:translateY(-5px);
-    border-color:var(--line);
-}
-.pic{
-    height:220px;
-    display:grid;
-    place-items:center;
-    padding:18px;
-    background:
-        radial-gradient(
-            circle at 50% 40%,
-            rgba(212,175,55,.08),
-            transparent 65%
-        );
-}
-.pic img{
-    width:100%;
-    height:100%;
-    object-fit:contain;
-}
-.info{
-    padding:17px;
-}
-.tag{
-    font-size:9px;
-    letter-spacing:2px;
-    color:#777;
-    text-transform:uppercase;
-}
-.info h3{
-    font-size:16px;
-    margin:7px 0 9px;
-    min-height:38px;
-}
-.price{
-    font-size:18px;
-    font-weight:900;
-    color:var(--gold2);
-}
-.details{
-    display:block;
-    margin-top:13px;
-    color:#777;
-    font-size:11px;
-}
-/* =========================
-   INFORMATION BOXES
-========================= */
-.info-panel{
-    display:grid;
-    grid-template-columns:
-        repeat(3,1fr);
-    gap:14px;
-    margin-top:10px;
-}
-.info-box{
-    border:1px solid #1d1d1d;
-    border-radius:18px;
-    padding:23px;
-    background:#0c0c0c;
-}
-.icon{
-    color:var(--gold);
-    font-size:20px;
-    margin-bottom:13px;
-}
-.info-box h3{
-    font-size:15px;
-    margin-bottom:7px;
-}
-.info-box p{
-    font-size:12px;
-    color:#858585;
-    line-height:1.6;
-}
-/* =========================
-   FOOTER
-========================= */
-footer{
-    border-top:
-        1px solid #181818;
-    margin-top:20px;
-    padding:
-        42px 16px 50px;
-    text-align:center;
-}
-.footer-logo{
-    width:120px;
-    margin-bottom:18px;
-}
-.footer-links{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    flex-wrap:wrap;
-    margin:15px 0;
-}
-.footer-links a{
-    padding:11px 16px;
-    border:1px solid #292929;
-    border-radius:999px;
-    font-size:12px;
-    color:#ccc;
-}
-.footer-note{
-    color:#666;
-    font-size:11px;
-    line-height:1.6;
-    max-width:650px;
-    margin:18px auto 0;
-}
-.copyright{
-    margin-top:25px;
-    color:#444;
-    font-size:10px;
-}
-/* =========================
-   EMPTY SEARCH
-========================= */
-.empty{
-    display:none;
-    text-align:center;
-    padding:35px;
-    color:#777;
-    border:1px dashed #252525;
-    border-radius:16px;
-}
-/* =========================
-   TABLET
-========================= */
-@media(max-width:900px){
-    .grid{
-        grid-template-columns:
-            repeat(2,1fr);
-    }
-    .info-panel{
-        grid-template-columns:1fr;
-    }
-    .nav-links{
-        display:none;
-    }
-    .banner img{
-        height:220px;
-    }
-}
-/* =========================
-   MOBILE
-========================= */
-@media(max-width:520px){
-    .nav{
-        height:68px;
-    }
-    .hero{
-        min-height:470px;
-        padding-top:50px;
-    }
-    .hero h1{
-        font-size:44px;
-    }
-    .hero p{
-        font-size:13px;
-    }
-    .banner{
-        border-radius:18px;
-        margin-bottom:50px;
-    }
-    .banner img{
-        height:170px;
-    }
-    .section{
-        padding-bottom:55px;
-    }
-    .section h2{
-        font-size:27px;
-    }
-    .section-head{
-        display:block;
-    }
-    .section-head p{
-        margin-top:8px;
-    }
-    .grid{
-        gap:9px;
-    }
-    .pic{
-        height:175px;
-        padding:10px;
-    }
-    .info{
-        padding:13px;
-    }
-    .info h3{
-        font-size:14px;
-    }
-    .price{
-        font-size:16px;
-    }
-    .details{
-        font-size:10px;
-    }
-    .age-actions{
-        flex-direction:column;
-    }
-}
-</style>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <meta
+        name="description"
+        content="POD ZONE — catálogo digital."
+    >
+
+    <title>POD ZONE | Catálogo</title>
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            background: #000;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #000;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        button,
+        input,
+        textarea,
+        select {
+            font-family: inherit;
+        }
+
+        /*
+         * IMPORTANTE PARA IPHONE
+         * Evita o zoom automático ao tocar
+         * em campos de pesquisa.
+         */
+
+        input,
+        textarea,
+        select {
+            font-size: 16px !important;
+        }
+
+
+        /* =========================
+           AGE GATE
+        ========================= */
+
+        .age-gate {
+
+            position: fixed;
+            inset: 0;
+
+            z-index: 99999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background: #000;
+        }
+
+        .age-box {
+
+            width: 100%;
+            max-width: 420px;
+
+            padding: 35px 25px;
+
+            text-align: center;
+
+            background: #050505;
+
+            border: 1px solid #292929;
+
+            border-radius: 24px;
+
+            box-shadow:
+                0 0 50px rgba(255, 190, 0, .08);
+        }
+
+        .age-box img {
+
+            width: 180px;
+
+            margin-bottom: 25px;
+        }
+
+        .age-box h2 {
+
+            font-size: 25px;
+
+            margin-bottom: 12px;
+        }
+
+        .age-box p {
+
+            color: #999;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 25px;
+        }
+
+        .age-buttons {
+
+            display: flex;
+
+            gap: 10px;
+
+            justify-content: center;
+        }
+
+        .age-buttons button {
+
+            border: none;
+
+            border-radius: 50px;
+
+            padding: 14px 20px;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+        }
+
+        .enter {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff1a5,
+                    #e4ae18
+                );
+
+            color: #000;
+        }
+
+        .leave {
+
+            background: #151515;
+
+            color: #aaa;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+
+            width: 100%;
+
+            height: 105px;
+
+            display: flex;
+
+            align-items: center;
+
+            padding: 0 30px;
+
+            background: #000;
+
+            border-bottom: 1px solid #0d0d0d;
+        }
+
+        .top-logo {
+
+            display: block;
+
+            width: 190px;
+
+            height: auto;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+
+            position: relative;
+
+            min-height:
+                calc(100vh - 105px);
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            padding:
+                70px 20px
+                100px;
+
+            text-align: center;
+
+            background: #000;
+        }
+
+
+        /* brilho sutil */
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 600px;
+
+            height: 600px;
+
+            top: 80px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(255, 190, 0, .035),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           TAGLINE
+        ========================= */
+
+        .tagline {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin-bottom: 35px;
+
+            color: #e5b52b;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            letter-spacing: 7px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================
+           LOGO CENTRAL
+        ========================= */
+
+        .hero-art {
+
+            position: relative;
+
+            z-index: 2;
+
+            width:
+                min(560px, 94vw);
+
+            margin-bottom: 45px;
+        }
+
+        .hero-art img {
+
+            width: 100%;
+
+            display: block;
+
+            height: auto;
+
+            filter:
+                drop-shadow(
+                    0 0 25px
+                    rgba(255, 180, 0, .08)
+                );
+        }
+
+
+        /* =========================
+           TITULO
+        ========================= */
+
+        .hero-title {
+
+            position: relative;
+
+            z-index: 2;
+
+            margin-bottom: 28px;
+
+            font-size:
+                clamp(42px, 9vw, 82px);
+
+            line-height: .95;
+
+            font-weight: 900;
+
+            letter-spacing: -3px;
+        }
+
+        .white {
+
+            color: #f5f5f5;
+        }
+
+        .gold {
+
+            color: #e6b52a;
+        }
+
+        .hero-title .gold {
+
+            display: block;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #fff0a0,
+                    #f2c23a,
+                    #c48700
+                );
+
+            -webkit-background-clip: text;
+
+            background-clip: text;
+
+            color: transparent;
+        }
+
+
+        /* =========================
+           DESCRIÇÃO
+        ========================= */
+
+        .description {
+
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 760px;
+
+            margin-bottom: 40px;
+
+            color: #999;
+
+            font-size:
+                clamp(16px, 3.8vw, 21px);
+
+            line-height: 1.65;
+        }
+
+
+        /* =========================
+           BOTÃO
+        ========================= */
+
+        .catalog-button {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 260px;
+
+            padding: 19px 25px;
+
+            border-radius: 60px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0a0,
+                    #e5b52b
+                );
+
+            color: #080808;
+
+            text-decoration: none;
+
+            font-size: 17px;
+
+            font-weight: 900;
+
+            box-shadow:
+                0 15px 40px
+                rgba(220, 170, 20, .12);
+
+            transition:
+                transform .25s ease;
+        }
+
+        .catalog-button:hover {
+
+            transform:
+                translateY(-3px);
+        }
+
+        .catalog-button span {
+
+            margin-left: 8px;
+
+            font-size: 23px;
+        }
+
+
+        /* =========================
+           CATÁLOGO
+        ========================= */
+
+        #catalogo {
+
+            padding:
+                80px 20px 100px;
+
+            background: #000;
+        }
+
+        .catalog-header {
+
+            max-width: 700px;
+
+            margin:
+                0 auto 45px;
+
+            text-align: center;
+        }
+
+        .catalog-header h2 {
+
+            margin-bottom: 15px;
+
+            font-size:
+                clamp(35px, 8vw, 58px);
+
+            font-weight: 900;
+        }
+
+        .catalog-header h2 .gold {
+
+            margin-left: 8px;
+        }
+
+        .catalog-header p {
+
+            color: #777;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           PESQUISA
+        ========================= */
+
+        .search-container {
+
+            width: 100%;
+
+            max-width: 650px;
+
+            margin:
+                0 auto 45px;
+        }
+
+        .search-box {
+
+            width: 100%;
+
+            padding:
+                16px 20px;
+
+            background: #080808;
+
+            color: #fff;
+
+            border:
+                1px solid #252525;
+
+            border-radius: 15px;
+
+            outline: none;
+
+            font-size: 16px !important;
+
+            -webkit-appearance: none;
+
+            appearance: none;
+
+            transition:
+                border-color .2s ease;
+        }
+
+        .search-box:focus {
+
+            border-color:
+                #c99c22;
+
+            /*
+             * Nenhum transform,
+             * evitando movimentação/zoom
+             * visual do campo.
+             */
+        }
+
+        .search-box::placeholder {
+
+            color: #666;
+        }
+
+
+        /* =========================
+           PRODUTOS
+        ========================= */
+
+        .products {
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 20px;
+        }
+
+        .product {
+
+            padding: 20px;
+
+            background: #070707;
+
+            border:
+                1px solid #181818;
+
+            border-radius: 22px;
+
+            text-align: center;
+
+            transition:
+                transform .25s ease,
+                border-color .25s ease;
+        }
+
+        .product:hover {
+
+            transform:
+                translateY(-4px);
+
+            border-color:
+                rgba(230, 180, 40, .35);
+        }
+
+        .product img {
+
+            width: 100%;
+
+            height: 260px;
+
+            object-fit: contain;
+
+            margin-bottom: 15px;
+        }
+
+        .product h3 {
+
+            margin-bottom: 8px;
+
+            font-size: 18px;
+        }
+
+        .product p {
+
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           INFORMAÇÕES
+        ========================= */
+
+        .info {
+
+            max-width: 850px;
+
+            margin:
+                70px auto 0;
+
+            padding:
+                30px 20px;
+
+            border-top:
+                1px solid #151515;
+
+            text-align: center;
+
+            color: #666;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            padding:
+                45px 20px;
+
+            text-align: center;
+
+            background: #000;
+
+            border-top:
+                1px solid #111;
+        }
+
+        footer img {
+
+            width: 170px;
+
+            margin-bottom: 18px;
+        }
+
+        footer p {
+
+            color: #555;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 650px) {
+
+            header {
+
+                height: 95px;
+
+                padding:
+                    0 25px;
+            }
+
+            .top-logo {
+
+                width: 175px;
+            }
+
+            .hero {
+
+                min-height: auto;
+
+                padding:
+                    55px 16px
+                    80px;
+            }
+
+            .tagline {
+
+                font-size: 10px;
+
+                letter-spacing: 4px;
+
+                margin-bottom: 30px;
+            }
+
+            .hero-art {
+
+                width: 100%;
+
+                margin-bottom: 40px;
+            }
+
+            .hero-title {
+
+                font-size:
+                    clamp(40px, 10vw, 58px);
+
+                letter-spacing: -2px;
+            }
+
+            .description {
+
+                font-size: 16px;
+
+                line-height: 1.65;
+
+                margin-bottom: 35px;
+            }
+
+            .catalog-button {
+
+                width: 250px;
+            }
+
+            #catalogo {
+
+                padding:
+                    65px 16px 90px;
+            }
+
+            .products {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .product img {
+
+                height: 300px;
+            }
+
+            .search-container {
+
+                margin-bottom: 30px;
+            }
+        }
+
+
+        /* =========================
+           TELAS MUITO PEQUENAS
+        ========================= */
+
+        @media (max-width: 380px) {
+
+            header {
+
+                padding:
+                    0 20px;
+            }
+
+            .top-logo {
+
+                width: 155px;
+            }
+
+            .hero {
+
+                padding-left: 12px;
+                padding-right: 12px;
+            }
+
+            .tagline {
+
+                font-size: 9px;
+
+                letter-spacing: 3px;
+            }
+        }
+
+    </style>
+
 </head>
+
+
 <body>
-<!-- =========================
-     18+ GATE
-========================= -->
-<div class="age-gate" id="ageGate">
-    <div class="age-box">
-        <div class="age-mark">
-            18+
-        </div>
-        <h1>
-            POD ZONE
-        </h1>
-        <p>
-            Este catálogo é destinado exclusivamente
-            a maiores de 18 anos.
-            Ao entrar, você confirma que possui
-            idade legal para acessar este conteúdo.
-        </p>
-        <div class="age-actions">
-            <button
-                class="enter"
-                onclick="enterSite()">
-                TENHO 18 ANOS OU MAIS
-            </button>
-            <button
-                class="leave"
-                onclick="leaveSite()">
-                SAIR
-            </button>
-        </div>
-    </div>
-</div>
-<!-- =========================
-     HEADER
-========================= -->
-<header>
-    <nav class="nav">
-        <a href="#top">
+
+
+    <!-- =========================
+         AVISO 18+
+    ========================= -->
+
+    <div
+        class="age-gate"
+        id="ageGate"
+    >
+
+        <div class="age-box">
+
             <img
-                class="logo"
-                src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
-                alt="PodZone">
-        </a>
-        <div class="nav-links">
-            <a href="#catalogo">
-                Catálogo
-            </a>
-            <a href="#sobre">
-                Informações
-            </a>
-            <a href="#contato">
-                Contato
-            </a>
+                src="pod-zone-top.png"
+                alt="POD ZONE"
+            >
+
+            <h2>
+                Conteúdo para adultos
+            </h2>
+
+            <p>
+                Este catálogo contém informações sobre
+                produtos destinados exclusivamente ao
+                público adulto.
+            </p>
+
+            <div class="age-buttons">
+
+                <button
+                    class="enter"
+                    onclick="enterSite()"
+                >
+                    Tenho 18 anos ou mais
+                </button>
+
+                <button
+                    class="leave"
+                    onclick="leaveSite()"
+                >
+                    Sair
+                </button>
+
+            </div>
+
         </div>
-    </nav>
-</header>
-<!-- =========================
-     MAIN
-========================= -->
-<main id="top">
-<!-- HERO -->
-<section class="hero">
-    <div>
-        <div class="eyebrow">
-            QUALIDADE • ESTILO • PODZONE
-        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
         <img
-            class="hero-logo"
-            src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
-            alt="PodZone">
-        <h1>
-            CATÁLOGO
-            <span>POD ZONE</span>
-        </h1>
-        <p>
-            Uma experiência digital mais limpa,
-            elegante e organizada para consultar
-            os modelos disponíveis e suas informações.
-        </p>
-        <a
-            class="hero-cta"
-            href="#catalogo">
-            VER CATÁLOGO ↓
-        </a>
-    </div>
-</section>
-<!-- BANNER -->
-<div class="banner">
-    <img
-        src="defb5532-c74a-4341-a461-6443efb0b3f4.jpeg"
-        alt="PodZone">
-</div>
-<!-- =========================
-     CATALOG
-========================= -->
-<section
-    class="section"
-    id="catalogo">
-    <div class="section-head">
-        <div>
-            <div class="kicker">
-                COLEÇÃO ATUAL
+            class="top-logo"
+            src="pod-zone-top.png"
+            alt="POD ZONE"
+        >
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="tagline">
+                QUALIDADE • ESTILO • PODZONE
             </div>
-            <h2>
-                Catálogo
-            </h2>
-        </div>
-        <p>
-            Consulte por modelo ou nome.
-        </p>
-    </div>
-    <!-- SEARCH -->
-    <div class="search">
-        <input
-            id="buscar"
-            type="search"
-            placeholder="Pesquisar modelo ou produto...">
-    </div>
-    <!-- PRODUCTS -->
-    <div
-        class="grid"
-        id="grid">
-        <!-- IGNITE V80 -->
-        <a
-            class="card"
-            href="ignite-v80.html">
-            <div class="pic">
+
+
+            <div class="hero-art">
+
                 <img
-                    src="FEE94CF7-D277-4C39-93B1-54827C90ADE1.png"
-                    alt="IGNITE V80">
+                    src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
+                    alt="POD ZONE"
+                >
+
             </div>
-            <div class="info">
-                <span class="tag">
-                    Modelo
+
+
+            <h1 class="hero-title">
+
+                <span class="white">
+                    CATÁLOGO POD
                 </span>
-                <h3>
-                    IGNITE V80
-                </h3>
-                <div class="price">
-                    R$ 75,00
-                </div>
-                <span class="details">
-                    Ver informações →
+
+                <span class="gold">
+                    ZONE
                 </span>
-            </div>
-        </a>
-        <!-- BLACK SHEEP -->
-        <a
-            class="card"
-            href="black-sheep-20k.html">
-            <div class="pic">
-                <img
-                    src="DB2EE04E-5EA4-4A61-8826-F60C38B074B8.png"
-                    alt="BLACK SHEEP 20K">
-            </div>
-            <div class="info">
-                <span class="tag">
-                    Modelo
-                </span>
-                <h3>
-                    BLACK SHEEP 20K
-                </h3>
-                <div class="price">
-                    R$ 99,90
-                </div>
-                <span class="details">
-                    Ver informações →
-                </span>
-            </div>
-        </a>
-        <!-- ELFBAR TE30K -->
-        <a
-            class="card"
-            href="elfbar-te30k.html">
-            <div class="pic">
-                <img
-                    src="10E271C5-6530-4777-8AD5-D6409D2DDD07.png"
-                    alt="ELFBAR TE30K">
-            </div>
-            <div class="info">
-                <span class="tag">
-                    Modelo
-                </span>
-                <h3>
-                    ELFBAR TE30K
-                </h3>
-                <div class="price">
-                    R$ 104,90
-                </div>
-                <span class="details">
-                    Ver informações →
-                </span>
-            </div>
-        </a>
-        <!-- SWEET KING -->
-        <a
-            class="card"
-            href="elfbar-sweet-king-40k.html">
-            <div class="pic">
-                <img
-                    src="99CD85F0-D389-4E26-9729-5CBBBBF7E43C.png"
-                    alt="ELFBAR SWEET KING 40K">
-            </div>
-            <div class="info">
-                <span class="tag">
-                    Modelo
-                </span>
-                <h3>
-                    ELFBAR SWEET KING 40K
-                </h3>
-                <div class="price">
-                    R$ 110,00
-                </div>
-                <span class="details">
-                    Ver informações →
-                </span>
-            </div>
-        </a>
-        <!-- WAKA -->
-        <a
-            class="card"
-            href="waka70k.html">
-            <div class="pic">
-                <img
-                    src="5A70E132-704C-4DDB-A295-11752B8339B7.png"
-                    alt="WAKA 70K">
-            </div>
-            <div class="info">
-                <span class="tag">
-                    Modelo
-                </span>
-                <h3>
-                    WAKA 70K
-                </h3>
-                <div class="price">
-                    R$ 95,00
-                </div>
-                <span class="details">
-                    Ver informações →
-                </span>
-            </div>
-        </a>
-        <!-- TABACO -->
-        <a
-            class="card"
-            href="tabaco-crema-blend.html">
-            <div class="pic">
-                <img
-                    src="E34CC3CB-5C81-4DC6-ADDF-D2B076CE96C5.png"
-                    alt="TABACO CREMA BLEND">
-            </div>
-            <div class="info">
-                <span class="tag">
-                    Produto
-                </span>
-                <h3>
-                    TABACO CREMA BLEND
-                </h3>
-                <div class="price">
-                    R$ 16,99
-                </div>
-                <span class="details">
-                    Ver informações →
-                </span>
-            </div>
-        </a>
-        <!-- BC PRO -->
-        <a
-            class="card"
-            href="elfbar-bc-pro-45k.html">
-            <div class="pic">
-                <img
-                    src="8A896DC2-0684-43A8-AE43-703CF5AD6D9D.png"
-                    alt="ELFBAR BC PRO 45K">
-            </div>
-            <div class="info">
-                <span class="tag">
-                    Modelo
-                </span>
-                <h3>
-                    ELFBAR BC PRO 45K
-                </h3>
-                <div class="price">
-                    R$ 105,00
-                </div>
-                <span class="details">
-                    Ver informações →
-                </span>
-            </div>
-        </a>
-        <!-- TRIO -->
-        <a
-            class="card"
-            href="elfbar-trio-40k.html">
-            <div class="pic">
-                <img
-                    src="D678A6A6-C8BC-4F90-8A42-C62D849716F2.png"
-                    alt="ELFBAR TRIO 40K">
-            </div>
-            <div class="info">
-                <span class="tag">
-                    Modelo
-                </span>
-                <h3>
-                    ELFBAR TRIO 40K
-                </h3>
-                <div class="price">
-                    R$ 115,00
-                </div>
-                <span class="details">
-                    Ver informações →
-                </span>
-            </div>
-        </a>
-        <!-- IGNITE V250 -->
-        <a
-            class="card"
-            href="ignitev250.html">
-            <div class="pic">
-                <img
-                    src="409FFE50-05CB-4E8C-8366-B714AF67E16E.png"
-                    alt="IGNITE V250">
-            </div>
-            <div class="info">
-                <span class="tag">
-                    Modelo
-                </span>
-                <h3>
-                    IGNITE V250
-                </h3>
-                <div class="price">
-                    R$ 99,90
-                </div>
-                <span class="details">
-                    Ver informações →
-                </span>
-            </div>
-        </a>
-        <!-- BC 15K -->
-        <a
-            class="card"
-            href="elfbar-bc-15k.html">
-            <div class="pic">
-                <img
-                    src="3D1EEB51-0607-48B5-97ED-8E8D33394363.png"
-                    alt="ELFBAR BC 15K">
-            </div>
-            <div class="info">
-                <span class="tag">
-                    Modelo
-                </span>
-                <h3>
-                    ELFBAR BC 15K
-                </h3>
-                <div class="price">
-                    R$ 74,90
-                </div>
-                <span class="details">
-                    Ver informações →
-                </span>
-            </div>
-        </a>
-    </div>
-    <div
-        class="empty"
-        id="empty">
-        Nenhum item encontrado.
-    </div>
-</section>
-<!-- =========================
-     INFORMATION
-========================= -->
-<section
-    class="section"
-    id="sobre">
-    <div class="section-head">
-        <div>
-            <div class="kicker">
-                POD ZONE
-            </div>
-            <h2>
-                Informações
-            </h2>
-        </div>
-    </div>
-    <div class="info-panel">
-        <div class="info-box">
-            <div class="icon">
-                ◈
-            </div>
-            <h3>
-                Catálogo organizado
-            </h3>
-            <p>
-                Modelos apresentados em uma
-                interface simples, responsiva
-                e fácil de consultar.
+
+            </h1>
+
+
+            <p class="description">
+
+                Uma experiência digital mais limpa,
+                elegante e organizada para consultar
+                os modelos disponíveis e suas informações.
+
             </p>
-        </div>
-        <div class="info-box">
-            <div class="icon">
-                ✦
-            </div>
-            <h3>
-                Identidade premium
-            </h3>
-            <p>
-                Visual inspirado em preto,
-                dourado e acabamento minimalista
-                para manter a identidade da marca.
-            </p>
-        </div>
-        <div class="info-box">
-            <div class="icon">
-                18+
-            </div>
-            <h3>
-                Acesso adulto
-            </h3>
-            <p>
-                O acesso ao catálogo é destinado
-                exclusivamente a pessoas com
-                18 anos ou mais.
-            </p>
-        </div>
-    </div>
-</section>
-</main>
-<!-- =========================
-     FOOTER
-========================= -->
-<footer id="contato">
-    <img
-        class="footer-logo"
-        src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
-        alt="PodZone">
-    <div class="footer-links">
-        <a href="https://wa.me/5511993554907">
-            WhatsApp
-        </a>
-        <a
-            href="https://www.instagram.com/podzone.oficial_/"
-            target="_blank"
-            rel="noopener">
-            Instagram
-        </a>
-    </div>
-    <p class="footer-note">
-        Conteúdo destinado exclusivamente
-        a maiores de 18 anos.
-        Verifique a legislação aplicável
-        antes de utilizar ou comercializar
-        produtos relacionados a este catálogo.
-    </p>
-    <div class="copyright">
-        © 2026 PodZone
-    </div>
-</footer>
-<!-- =========================
-     JAVASCRIPT
-========================= -->
-<script>
-function enterSite(){
-    localStorage.setItem(
-        'podzone18',
-        'yes'
-    );
-    document.getElementById(
-        'ageGate'
-    ).style.display = 'none';
-}
-function leaveSite(){
-    document.body.innerHTML = `
-        <main style="
-            min-height:100vh;
-            display:grid;
-            place-items:center;
-            padding:30px;
-            text-align:center;
-            font-family:system-ui;
-            background:#060606;
-            color:#fff;
-        ">
-            <div>
-                <h1 style="
-                    font-size:32px;
-                    margin-bottom:12px;
-                ">
-                    Acesso encerrado
-                </h1>
-                <p style="
-                    color:#999;
-                ">
-                    Este catálogo é destinado
-                    exclusivamente a maiores
-                    de 18 anos.
+
+
+            <a
+                href="#catalogo"
+                class="catalog-button"
+            >
+
+                VER CATÁLOGO
+
+                <span>↓</span>
+
+            </a>
+
+        </section>
+
+
+
+        <!-- =========================
+             CATÁLOGO
+        ========================= -->
+
+        <section id="catalogo">
+
+
+            <div class="catalog-header">
+
+                <h2>
+
+                    <span class="white">
+                        CATÁLOGO
+                    </span>
+
+                    <span class="gold">
+                        POD ZONE
+                    </span>
+
+                </h2>
+
+                <p>
+                    Consulte os modelos disponíveis
+                    e suas respectivas informações.
                 </p>
+
             </div>
-        </main>
-    `;
-}
-if(
-    localStorage.getItem('podzone18')
-    === 'yes'
-){
-    document.getElementById(
-        'ageGate'
-    ).style.display = 'none';
-}
-const input =
-    document.getElementById('buscar');
-const cards =
-    [
-        ...document.querySelectorAll('.card')
-    ];
-const empty =
-    document.getElementById('empty');
-input.addEventListener(
-    'input',
-    () => {
-        const q =
-            input.value
-            .toLowerCase()
-            .trim();
-        let shown = 0;
-        cards.forEach(
-            card => {
-                const ok =
-                    card.innerText
+
+
+
+            <!-- PESQUISA -->
+
+            <div class="search-container">
+
+                <input
+                    type="search"
+                    id="search"
+                    class="search-box"
+                    placeholder="Pesquisar modelo..."
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    spellcheck="false"
+                >
+
+            </div>
+
+
+
+            <!-- PRODUTOS -->
+
+            <div
+                class="products"
+                id="products"
+            >
+
+
+                <article
+                    class="product"
+                    data-name="ignite v80"
+                >
+
+                    <img
+                        src="FEE94CF7-D277-4C39-93B1-54827C90ADE1.png"
+                        alt="IGNITE V80"
+                    >
+
+                    <h3>
+                        IGNITE V80
+                    </h3>
+
+                    <p>
+                        Consulte informações do modelo.
+                    </p>
+
+                </article>
+
+
+
+                <article
+                    class="product"
+                    data-name="black sheep 20k"
+                >
+
+                    <img
+                        src="DB2EE04E-5EA4-4A61-8826-F60C38B074B8.png"
+                        alt="BLACK SHEEP 20K"
+                    >
+
+                    <h3>
+                        BLACK SHEEP 20K
+                    </h3>
+
+                    <p>
+                        Consulte informações do modelo.
+                    </p>
+
+                </article>
+
+
+
+                <article
+                    class="product"
+                    data-name="elfbar te30k"
+                >
+
+                    <img
+                        src="10E271C5-6530-4777-8AD5-D6409D2DDD07.png"
+                        alt="ELFBAR TE30K"
+                    >
+
+                    <h3>
+                        ELFBAR TE30K
+                    </h3>
+
+                    <p>
+                        Consulte informações do modelo.
+                    </p>
+
+                </article>
+
+
+
+                <article
+                    class="product"
+                    data-name="elfbar sweet king 40k"
+                >
+
+                    <img
+                        src="99CD85F0-D389-4E26-9729-5CBBBBF7E43C.png"
+                        alt="ELFBAR SWEET KING 40K"
+                    >
+
+                    <h3>
+                        ELFBAR SWEET KING 40K
+                    </h3>
+
+                    <p>
+                        Consulte informações do modelo.
+                    </p>
+
+                </article>
+
+
+
+                <article
+                    class="product"
+                    data-name="waka 70k"
+                >
+
+                    <img
+                        src="5A70E132-704C-4DDB-A295-11752B8339B7.png"
+                        alt="WAKA 70K"
+                    >
+
+                    <h3>
+                        WAKA 70K
+                    </h3>
+
+                    <p>
+                        Consulte informações do modelo.
+                    </p>
+
+                </article>
+
+
+
+                <article
+                    class="product"
+                    data-name="elfbar bc pro 45k"
+                >
+
+                    <img
+                        src="8A896DC2-0684-43A8-AE43-703CF5AD6D9D.png"
+                        alt="ELFBAR BC PRO 45K"
+                    >
+
+                    <h3>
+                        ELFBAR BC PRO 45K
+                    </h3>
+
+                    <p>
+                        Consulte informações do modelo.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+
+
+            <div class="info">
+
+                Catálogo informativo destinado
+                exclusivamente a adultos.
+                As informações apresentadas podem
+                variar de acordo com disponibilidade
+                e especificações dos produtos.
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <img
+            src="pod-zone-top.png"
+            alt="POD ZONE"
+        >
+
+        <p>
+            © 2026 POD ZONE. Todos os direitos reservados.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        /* =========================
+           IDADE
+        ========================= */
+
+        const ageGate =
+            document.getElementById("ageGate");
+
+
+        function enterSite() {
+
+            localStorage.setItem(
+                "podzone18",
+                "true"
+            );
+
+            ageGate.style.display =
+                "none";
+        }
+
+
+        function leaveSite() {
+
+            window.location.href =
+                "https://www.google.com/";
+        }
+
+
+        if (
+            localStorage.getItem("podzone18")
+            === "true"
+        ) {
+
+            ageGate.style.display =
+                "none";
+        }
+
+
+
+        /* =========================
+           PESQUISA
+        ========================= */
+
+        const search =
+            document.getElementById("search");
+
+        const products =
+            document.querySelectorAll(".product");
+
+
+        search.addEventListener(
+            "input",
+            function () {
+
+                const value =
+                    search.value
                     .toLowerCase()
-                    .includes(q);
-                card.style.display =
-                    ok
-                    ? 'block'
-                    : 'none';
-                if(ok){
-                    shown++;
-                }
+                    .trim();
+
+
+                products.forEach(
+                    function (product) {
+
+                        const name =
+                            product
+                            .dataset
+                            .name
+                            .toLowerCase();
+
+
+                        if (
+                            name.includes(value)
+                        ) {
+
+                            product.style.display =
+                                "";
+
+                        } else {
+
+                            product.style.display =
+                                "none";
+                        }
+
+                    }
+                );
+
             }
         );
-        empty.style.display =
-            shown
-            ? 'none'
-            : 'block';
-    }
-);
-</script>
+
+    </script>
+
+
 </body>
+
 </html>
