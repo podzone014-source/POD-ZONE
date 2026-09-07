@@ -6,162 +6,896 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>IGNITE V80 - PodZone</title>
+<title>IGNITE V80 | POD ZONE</title>
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    background: #000;
-    color: #fff;
-    font-family: Arial, sans-serif;
+html {
+    scroll-behavior: smooth;
 }
 
-/* CABEÇALHO */
+body {
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(212,175,55,0.08),
+            transparent 30%
+        ),
+        #050505;
+
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =========================
+   VARIÁVEIS
+========================= */
+
+:root {
+    --gold: #d4af37;
+    --gold-light: #f5d76e;
+    --gold-dark: #8a6a00;
+
+    --black: #050505;
+    --card: #0d0d0d;
+    --border: #292929;
+    --gray: #a8a8a8;
+}
+
+
+/* =========================
+   HEADER
+========================= */
 
 header {
-    text-align: center;
-    padding: 20px 15px 10px;
+
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    border-bottom: 1px solid #222;
+
+    background: rgba(0,0,0,0.95);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
+
     width: 125px;
+
     display: block;
-    margin: 0 auto;
 }
 
-/* PRODUTO */
+.menu-btn {
+
+    position: absolute;
+    left: 20px;
+
+    font-size: 27px;
+
+    color: white;
+
+    text-decoration: none;
+
+    line-height: 1;
+}
+
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.container {
+
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 0 18px 60px;
+}
+
+
+/* =========================
+   BREADCRUMB
+========================= */
+
+.breadcrumb {
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 20px 2px;
+
+    font-size: 13px;
+
+    color: #888;
+}
+
+.breadcrumb a {
+
+    color: var(--gold-light);
+
+    text-decoration: none;
+}
+
+.breadcrumb strong {
+
+    color: white;
+}
+
+
+/* =========================
+   PRODUTO
+========================= */
 
 .produto {
-    width: 100%;
-    max-width: 480px;
-    margin: 20px auto 0;
-    padding: 0 20px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 35px;
+
+    align-items: center;
 }
 
-/* IMAGEM */
 
-.imagem-produto {
+/* =========================
+   IMAGEM
+========================= */
+
+.imagem-box {
+
+    min-height: 500px;
+
+    border: 1px solid #292929;
+
+    border-radius: 18px;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(212,175,55,0.18),
+            transparent 45%
+        ),
+        #080808;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.imagem-box::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    border-radius: 50%;
+
+    background: rgba(212,175,55,0.12);
+
+    filter: blur(55px);
+}
+
+.imagem-box img {
+
     width: 100%;
-    height: 360px;
+
+    height: 480px;
+
     object-fit: contain;
-    display: block;
-    margin: 0 auto;
+
+    position: relative;
+
+    z-index: 2;
+
+    transition: transform .3s ease;
 }
 
-/* NOME */
+.imagem-box:hover img {
+
+    transform: scale(1.03);
+}
+
+.ampliar {
+
+    position: absolute;
+
+    bottom: 18px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #ddd;
+
+    font-size: 13px;
+
+    z-index: 5;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+========================= */
+
+.marca {
+
+    display: inline-block;
+
+    border: 1px solid var(--gold);
+
+    color: var(--gold-light);
+
+    border-radius: 7px;
+
+    padding: 6px 10px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 14px;
+}
 
 h1 {
-    margin: 15px 0 5px;
-    font-size: 30px;
-    color: #d4af37;
-    letter-spacing: 1px;
-}
 
-/* PREÇO */
+    font-size: clamp(34px, 6vw, 52px);
+
+    line-height: 1;
+
+    margin-bottom: 12px;
+
+    letter-spacing: -1px;
+}
 
 .preco {
-    margin: 0 0 20px;
-    font-size: 25px;
-    font-weight: bold;
-    color: #fff;
-}
 
-/* DESCRIÇÃO */
+    font-size: 34px;
+
+    font-weight: 800;
+
+    color: var(--gold-light);
+
+    margin-bottom: 22px;
+}
 
 .descricao {
+
     color: #bbb;
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 0 auto 25px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
 }
 
-/* BOTÕES */
+
+/* =========================
+   BOTÕES
+========================= */
 
 .botoes {
+
     display: flex;
+
     flex-direction: column;
-    gap: 12px;
+
+    gap: 11px;
+
+    margin-bottom: 25px;
 }
 
 .botao {
+
     width: 100%;
-    padding: 16px;
+
+    min-height: 56px;
+
     border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
     text-decoration: none;
-    text-align: center;
+
     font-weight: bold;
+
     font-size: 16px;
-    transition: 0.2s;
+
+    cursor: pointer;
+
+    transition: .2s;
 }
 
-/* WHATSAPP */
-
 .whatsapp {
-    background: linear-gradient(
-        135deg,
-        #d4af37,
-        #f5d76e
-    );
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-light),
+            var(--gold)
+        );
 
     color: #000;
+
     border: none;
 }
 
-.whatsapp:active {
-    transform: scale(0.98);
+.whatsapp:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(212,175,55,0.25);
 }
 
-/* VOLTAR */
+.contato {
 
-.voltar {
-    background: #111;
-    color: #fff;
+    background: #151515;
+
+    color: white;
+
     border: 1px solid #333;
 }
 
-/* BENEFÍCIOS */
+.contato:hover {
+
+    border-color: var(--gold);
+}
+
+
+/* =========================
+   BENEFÍCIOS
+========================= */
 
 .beneficios {
-    margin: 35px 0 10px;
-    padding: 20px 15px;
-    border-top: 1px solid #222;
-    border-bottom: 1px solid #222;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    border-top: 1px solid #252525;
+
+    border-bottom: 1px solid #252525;
+
+    padding: 18px 0;
 }
 
 .beneficio {
-    margin: 12px 0;
-    color: #ccc;
+
+    text-align: center;
+
+    padding: 0 10px;
+
+    border-right: 1px solid #252525;
+}
+
+.beneficio:last-child {
+
+    border-right: none;
+}
+
+.icone {
+
+    font-size: 23px;
+
+    color: var(--gold-light);
+
+    margin-bottom: 8px;
+}
+
+.beneficio strong {
+
+    display: block;
+
+    font-size: 12px;
+
+    margin-bottom: 4px;
+}
+
+.beneficio span {
+
+    color: #888;
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+.secoes {
+
+    margin-top: 30px;
+}
+
+.info-box {
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d0d0d,
+            #090909
+        );
+
+    border: 1px solid #292929;
+
+    border-radius: 15px;
+
+    margin-bottom: 10px;
+
+    overflow: hidden;
+}
+
+.info-titulo {
+
+    width: 100%;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+.info-titulo .esquerda {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.info-icone {
+
+    color: var(--gold-light);
+
+    font-size: 22px;
+}
+
+.seta {
+
+    color: var(--gold-light);
+
+    font-size: 20px;
+
+    transition: .25s;
+}
+
+.info-conteudo {
+
+    display: none;
+
+    padding: 0 20px 22px;
+
+    color: #aaa;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+.info-box.aberto .info-conteudo {
+
+    display: block;
+}
+
+.info-box.aberto .seta {
+
+    transform: rotate(180deg);
+}
+
+
+/* =========================
+   BANNER
+========================= */
+
+.banner {
+
+    margin-top: 30px;
+
+    min-height: 210px;
+
+    border: 1px solid #292929;
+
+    border-radius: 17px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(212,175,55,0.28),
+            transparent 35%
+        ),
+        linear-gradient(
+            110deg,
+            #050505,
+            #111,
+            #050505
+        );
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 30px;
+}
+
+.banner::after {
+
+    content: "";
+
+    position: absolute;
+
+    right: -80px;
+
+    bottom: -100px;
+
+    width: 280px;
+
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: rgba(212,175,55,0.10);
+
+    filter: blur(30px);
+}
+
+.banner-conteudo {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 600px;
+}
+
+.banner-logo {
+
+    font-size: 34px;
+
+    font-weight: 900;
+
+    font-style: italic;
+
+    margin-bottom: 15px;
+}
+
+.banner-logo span {
+
+    color: var(--gold-light);
+}
+
+.banner h2 {
+
+    color: var(--gold-light);
+
+    font-size: 23px;
+
+    line-height: 1.25;
+
+    margin-bottom: 14px;
+}
+
+.banner p {
+
+    color: #999;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    border-top: 1px solid #222;
+
+    padding: 30px 18px 45px;
+
+    background: #030303;
+}
+
+.footer-inner {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+}
+
+.footer-logo {
+
+    font-size: 27px;
+
+    font-weight: 900;
+
+    font-style: italic;
+}
+
+.footer-logo span {
+
+    color: var(--gold-light);
+}
+
+.footer-links {
+
+    display: flex;
+
+    gap: 22px;
+}
+
+.footer-links a {
+
+    color: #bbb;
+
+    text-decoration: none;
+
     font-size: 13px;
 }
 
-/* RODAPÉ */
+.footer-links a:hover {
 
-footer {
-    text-align: center;
-    padding: 25px 15px 35px;
-    color: #777;
-    font-size: 12px;
+    color: var(--gold-light);
 }
 
-/* DESKTOP */
+.copyright {
 
-@media (min-width: 700px) {
+    max-width: 1100px;
 
-    .produto {
-        max-width: 850px;
+    margin: 25px auto 0;
+
+    color: #555;
+
+    font-size: 11px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 699px) {
+
+    header {
+
+        height: 68px;
     }
 
-    .imagem-produto {
-        height: 430px;
+    .logo {
+
+        width: 112px;
+    }
+
+    .menu-btn {
+
+        left: 18px;
+
+        font-size: 25px;
+    }
+
+    .container {
+
+        padding: 0 15px 45px;
+    }
+
+    .breadcrumb {
+
+        padding: 18px 2px;
+
+        font-size: 12px;
+    }
+
+    .produto {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 25px;
+
+        align-items: stretch;
+    }
+
+    .imagem-box {
+
+        min-height: 390px;
+
+        border-radius: 16px;
+    }
+
+    .imagem-box img {
+
+        height: 380px;
+    }
+
+    .ampliar {
+
+        font-size: 12px;
+    }
+
+    .produto-info {
+
+        width: 100%;
     }
 
     h1 {
-        font-size: 36px;
+
+        font-size: 38px;
+
+        margin-bottom: 10px;
+    }
+
+    .preco {
+
+        font-size: 31px;
+    }
+
+    .descricao {
+
+        font-size: 14px;
+
+        line-height: 1.65;
+    }
+
+    .beneficios {
+
+        margin-top: 5px;
+
+        padding: 16px 0;
+    }
+
+    .beneficio {
+
+        padding: 0 5px;
+    }
+
+    .icone {
+
+        font-size: 20px;
+    }
+
+    .beneficio strong {
+
+        font-size: 10px;
+    }
+
+    .beneficio span {
+
+        display: none;
+    }
+
+    .info-titulo {
+
+        padding: 18px;
+
+        font-size: 15px;
+    }
+
+    .info-conteudo {
+
+        padding: 0 18px 20px;
+
+        font-size: 13px;
+    }
+
+    .banner {
+
+        min-height: 190px;
+
+        padding: 25px 20px;
+    }
+
+    .banner-logo {
+
+        font-size: 29px;
+    }
+
+    .banner h2 {
+
+        font-size: 20px;
+    }
+
+    .footer-inner {
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .footer-links {
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+}
+
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 700px) {
+
+    .menu-btn {
+
+        display: none;
     }
 
 }
@@ -170,10 +904,24 @@ footer {
 
 </head>
 
+
 <body>
 
 
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
+
+<a
+href="index.html"
+class="menu-btn"
+aria-label="Voltar">
+
+←
+
+</a>
 
 <a href="index.html">
 
@@ -187,16 +935,69 @@ alt="POD ZONE">
 </header>
 
 
-<main class="produto">
+<!-- =========================
+     CONTEÚDO
+========================= -->
 
+<main class="container">
+
+
+<!-- BREADCRUMB -->
+
+<div class="breadcrumb">
+
+<a href="index.html">
+Voltar
+</a>
+
+<span>›</span>
+
+<span>Início</span>
+
+<span>›</span>
+
+<span>Produtos</span>
+
+<span>›</span>
+
+<strong>Ignite V80</strong>
+
+</div>
+
+
+<!-- PRODUTO -->
+
+<section class="produto">
+
+
+<!-- FOTO -->
+
+<div class="imagem-box">
 
 <img
 src="FEE94CF7-D277-4C39-93B1-54827C90ADE1.png"
-class="imagem-produto"
 alt="IGNITE V80">
 
+<div class="ampliar">
+⌕ Toque para ampliar
+</div>
 
-<h1>IGNITE V80</h1>
+</div>
+
+
+<!-- INFORMAÇÕES -->
+
+<div class="produto-info">
+
+
+<div class="marca">
+IGNITE
+</div>
+
+
+<h1>
+IGNITE V80
+</h1>
 
 
 <div class="preco">
@@ -206,47 +1007,260 @@ R$ 75,00
 
 <p class="descricao">
 
-Confira as informações do IGNITE V80 e entre em contato
-com a POD ZONE pelo WhatsApp para tirar suas dúvidas.
+Conheça o IGNITE V80 e confira as informações
+do produto. Para dúvidas sobre disponibilidade,
+sabores ou outros detalhes, fale diretamente
+com a POD ZONE.
 
 </p>
 
 
 <div class="botoes">
 
+
 <a
-class="botao whatsapp"
 href="#"
-onclick="contatoWhatsApp(); return false;">
+class="botao whatsapp"
+onclick="falarWhatsApp(); return false;">
 
-Falar pelo WhatsApp
+◉ &nbsp; Falar pelo WhatsApp &nbsp; ›
 
 </a>
 
 
 <a
-class="botao voltar"
-href="index.html">
+href="index.html"
+class="botao contato">
 
-← Voltar para produtos
+← &nbsp; Voltar para produtos
 
 </a>
 
+
 </div>
 
 
-<section class="beneficios">
+<!-- BENEFÍCIOS -->
+
+<div class="beneficios">
+
 
 <div class="beneficio">
-✓ Produto original
+
+<div class="icone">
+♢
 </div>
 
-<div class="beneficio">
-🚚 Envio rápido
+<strong>
+Produto original
+</strong>
+
+<span>
+Qualidade
+</span>
+
 </div>
 
+
 <div class="beneficio">
-📲 Atendimento via WhatsApp
+
+<div class="icone">
+▣
+</div>
+
+<strong>
+Envio rápido
+</strong>
+
+<span>
+Consulte condições
+</span>
+
+</div>
+
+
+<div class="beneficio">
+
+<div class="icone">
+♧
+</div>
+
+<strong>
+Atendimento
+</strong>
+
+<span>
+Personalizado
+</span>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     INFORMAÇÕES
+========================= -->
+
+<section class="secoes">
+
+
+<!-- SOBRE -->
+
+<div class="info-box aberto">
+
+<button
+class="info-titulo"
+onclick="abrirInfo(this)">
+
+<span class="esquerda">
+
+<span class="info-icone">
+▤
+</span>
+
+Sobre o produto
+
+</span>
+
+<span class="seta">
+⌃
+</span>
+
+</button>
+
+
+<div class="info-conteudo">
+
+O IGNITE V80 é apresentado nesta página
+com suas principais informações para facilitar
+a consulta do produto.
+
+Para informações atualizadas sobre disponibilidade,
+consulte diretamente a POD ZONE.
+
+</div>
+
+</div>
+
+
+<!-- ESPECIFICAÇÕES -->
+
+<div class="info-box">
+
+<button
+class="info-titulo"
+onclick="abrirInfo(this)">
+
+<span class="esquerda">
+
+<span class="info-icone">
+⚙
+</span>
+
+Especificações
+
+</span>
+
+<span class="seta">
+⌄
+</span>
+
+</button>
+
+
+<div class="info-conteudo">
+
+<strong>Produto:</strong> IGNITE V80<br><br>
+
+<strong>Marca:</strong> IGNITE<br><br>
+
+<strong>Preço exibido:</strong> R$ 75,00
+
+</div>
+
+</div>
+
+
+<!-- DÚVIDAS -->
+
+<div class="info-box">
+
+<button
+class="info-titulo"
+onclick="abrirInfo(this)">
+
+<span class="esquerda">
+
+<span class="info-icone">
+?
+</span>
+
+Dúvidas frequentes
+
+</span>
+
+<span class="seta">
+⌄
+</span>
+
+</button>
+
+
+<div class="info-conteudo">
+
+Tem alguma dúvida sobre o produto?
+
+Entre em contato com a POD ZONE pelo WhatsApp
+para consultar informações sobre disponibilidade
+e detalhes do produto.
+
+</div>
+
+</div>
+
+
+</section>
+
+
+<!-- =========================
+     BANNER POD ZONE
+========================= -->
+
+<section class="banner">
+
+
+<div class="banner-conteudo">
+
+
+<div class="banner-logo">
+
+POD <span>ZONE</span>
+
+</div>
+
+
+<h2>
+
+MAIS QUE PODS,<br>
+UM ESTILO DE VIDA.
+
+</h2>
+
+
+<p>
+
+VAPE &nbsp; • &nbsp; POD &nbsp; • &nbsp; LIFESTYLE
+
+</p>
+
+
 </div>
 
 </section>
@@ -255,28 +1269,99 @@ href="index.html">
 </main>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-© 2026 PodZone
+
+<div class="footer-inner">
+
+
+<div class="footer-logo">
+
+POD <span>ZONE</span>
+
+</div>
+
+
+<div class="footer-links">
+
+<a href="index.html">
+Início
+</a>
+
+<a href="index.html#produtos">
+Produtos
+</a>
+
+<a href="#">
+Sobre nós
+</a>
+
+<a href="#">
+Contato
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 PodZone. Todos os direitos reservados.
+
+</div>
+
 
 </footer>
 
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
 
-function contatoWhatsApp() {
+
+/* =========================
+   WHATSAPP
+========================= */
+
+function falarWhatsApp() {
 
     const produto = "IGNITE V80";
 
     const mensagem =
-        "Olá, vim pelo site da POD ZONE e gostaria de saber mais sobre o produto " 
-        + produto + ".";
+        "Olá, POD ZONE! Vim pelo site e gostaria de informações sobre o "
+        + produto
+        + ".";
+
+    const telefone = "5511993554907";
 
     const link =
-        "https://wa.me/5511993554907?text="
+        "https://wa.me/"
+        + telefone
+        + "?text="
         + encodeURIComponent(mensagem);
 
     window.open(link, "_blank");
+
+}
+
+
+/* =========================
+   ABRIR / FECHAR INFORMAÇÕES
+========================= */
+
+function abrirInfo(botao) {
+
+    const caixa = botao.parentElement;
+
+    caixa.classList.toggle("aberto");
 
 }
 
