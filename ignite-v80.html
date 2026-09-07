@@ -4,7 +4,11 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>IGNITE V80 | POD ZONE</title>
 
@@ -52,11 +56,9 @@ body {
 ========================= */
 
 header {
-
     height: 62px;
 
     display: flex;
-
     align-items: center;
 
     background: rgba(0,0,0,.97);
@@ -64,14 +66,12 @@ header {
     border-bottom: 1px solid #222;
 
     position: sticky;
-
     top: 0;
 
     z-index: 100;
 }
 
 .menu {
-
     margin-left: 18px;
 
     color: var(--gold-light);
@@ -79,14 +79,12 @@ header {
     text-decoration: none;
 
     font-size: 28px;
-
     line-height: 1;
 
     transition: .2s;
 }
 
 .menu:hover {
-
     transform: translateX(-3px);
 }
 
@@ -96,9 +94,7 @@ header {
 ========================= */
 
 .container {
-
     width: 100%;
-
     max-width: 1100px;
 
     margin: auto;
@@ -112,9 +108,7 @@ header {
 ========================= */
 
 .breadcrumb {
-
     display: flex;
-
     align-items: center;
 
     gap: 7px;
@@ -126,19 +120,15 @@ header {
     font-size: 12px;
 
     overflow: hidden;
-
     white-space: nowrap;
 }
 
 .breadcrumb a {
-
     color: var(--gold-light);
-
     text-decoration: none;
 }
 
 .breadcrumb strong {
-
     color: #ddd;
 }
 
@@ -148,7 +138,6 @@ header {
 ========================= */
 
 .produto {
-
     display: grid;
 
     grid-template-columns: 1fr 1fr;
@@ -160,16 +149,21 @@ header {
 
 
 /* =========================
-   IMAGEM
+   IMAGEM — SEM MOLDURA
 ========================= */
 
 .imagem-box {
 
     height: 510px;
 
-    border: 1px solid #292929;
+    /*
+        REMOVIDA A MOLDURA:
+        border: none
+        border-radius: 0
+    */
 
-    border-radius: 20px;
+    border: none;
+    border-radius: 0;
 
     background:
 
@@ -179,20 +173,24 @@ header {
             transparent 45%
         ),
 
-        #080808;
+        #050505;
 
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     position: relative;
 
     overflow: hidden;
 
-    padding: 20px;
+    padding: 0;
 }
+
+
+/* =========================
+   BRILHO DOURADO
+========================= */
 
 .imagem-box::before {
 
@@ -200,21 +198,26 @@ header {
 
     position: absolute;
 
-    width: 260px;
-
-    height: 260px;
+    width: 280px;
+    height: 280px;
 
     border-radius: 50%;
 
-    background: rgba(212,175,55,.12);
+    background: rgba(212,175,55,.13);
 
-    filter: blur(55px);
+    filter: blur(60px);
+
+    z-index: 1;
 }
+
+
+/* =========================
+   IMAGEM DO PRODUTO
+========================= */
 
 .imagem-box img {
 
     width: 100%;
-
     height: 100%;
 
     object-fit: contain;
@@ -224,13 +227,20 @@ header {
     position: relative;
 
     z-index: 2;
+
+    display: block;
 }
+
+
+/* =========================
+   TEXTO DA IMAGEM
+========================= */
 
 .zoom {
 
     position: absolute;
 
-    bottom: 15px;
+    bottom: 8px;
 
     left: 50%;
 
@@ -756,15 +766,33 @@ footer p {
         gap: 25px;
     }
 
+
+    /* =========================
+       IMAGEM MOBILE
+       SEM MOLDURA
+    ========================= */
+
     .imagem-box {
 
         width: 100%;
 
         height: 390px;
 
-        border-radius: 17px;
+        border: none;
 
-        padding: 12px;
+        border-radius: 0;
+
+        padding: 0;
+
+        background:
+
+            radial-gradient(
+                circle,
+                rgba(212,175,55,.20),
+                transparent 45%
+            ),
+
+            #050505;
     }
 
     .imagem-box img {
@@ -866,11 +894,10 @@ footer p {
 <header>
 
 <a
-href="index.html"
-class="menu">
-
-←
-
+    href="index.html"
+    class="menu"
+>
+    ←
 </a>
 
 </header>
@@ -890,7 +917,7 @@ class="menu">
 <div class="breadcrumb">
 
 <a href="index.html">
-Voltar
+    Voltar
 </a>
 
 <span>›</span>
@@ -922,11 +949,12 @@ Voltar
 <div class="imagem-box">
 
 <img
-src="FEE94CF7-D277-4C39-93B1-54827C90ADE1.png"
-alt="IGNITE V80">
+    src="FEE94CF7-D277-4C39-93B1-54827C90ADE1.png"
+    alt="IGNITE V80"
+>
 
 <div class="zoom">
-IGNITE V80
+    IGNITE V80
 </div>
 
 </div>
@@ -938,66 +966,63 @@ IGNITE V80
 
 <div>
 
-
 <div class="marca">
-IGNITE
+    IGNITE
 </div>
-
 
 <h1>
-IGNITE V80
+    IGNITE V80
 </h1>
 
-
 <div class="preco">
-R$ 75,00
+    R$ 75,00
 </div>
-
 
 <div class="puffs">
 
-💨
+    💨
 
-<strong>8.000 PUFFS</strong>
+    <strong>
+        8.000 PUFFS
+    </strong>
 
-<span>de autonomia</span>
+    <span>
+        de autonomia
+    </span>
 
 </div>
 
 
 <p class="descricao">
 
-Conheça o IGNITE V80 e confira as principais
-informações do produto. Para dúvidas sobre
-características e detalhes, consulte as
-informações apresentadas nesta página.
+    Conheça o IGNITE V80 e confira as principais
+    características deste produto. Design moderno,
+    praticidade e uma experiência diferenciada.
 
 </p>
 
 
+<!-- =========================
+     BOTÕES
+========================= -->
+
 <div class="botoes">
 
-
 <a
-href="#informacoes"
-class="botao informacoes-btn">
-
-ℹ️ &nbsp; Ver informações
-
+    href="https://wa.me/"
+    class="botao informacoes-btn"
+>
+    Falar pelo WhatsApp →
 </a>
 
-
 <a
-href="index.html"
-class="botao voltar">
-
-← &nbsp; Voltar para produtos
-
+    href="index.html"
+    class="botao voltar"
+>
+    Voltar ao catálogo
 </a>
-
 
 </div>
-
 
 </div>
 
@@ -1008,129 +1033,96 @@ class="botao voltar">
      INFORMAÇÕES
 ========================= -->
 
-<section
-class="informacoes"
-id="informacoes">
+<section class="informacoes">
 
-
-<!-- =========================
-     SOBRE
-========================= -->
-
-<div class="info aberto">
-
-<button onclick="abrirInfo(this)">
-
-<span class="info-titulo">
-
-<span class="info-icone">
-▤
-</span>
-
-Sobre o produto
-
-</span>
-
-<span class="seta">
-⌃
-</span>
-
-</button>
-
-
-<div class="conteudo">
-
-O IGNITE V80 é um produto da linha IGNITE,
-apresentado pela POD ZONE com informações
-sobre o modelo e sua autonomia.
-
-<br><br>
-
-O modelo possui capacidade informada de até
-<strong>8.000 puffs 💨</strong>.
-
-</div>
-
-</div>
-
-
-<!-- =========================
-     ESPECIFICAÇÕES
-========================= -->
 
 <div class="info">
 
-<button onclick="abrirInfo(this)">
+<button onclick="toggleInfo(this)">
 
-<span class="info-titulo">
+    <span class="info-titulo">
 
-<span class="info-icone">
-⚙
-</span>
+        <span class="info-icone">
+            ◉
+        </span>
 
-Informações principais
+        Sobre o produto
 
-</span>
+    </span>
 
-<span class="seta">
-⌄
-</span>
+    <span class="seta">
+        ↓
+    </span>
 
 </button>
 
-
 <div class="conteudo">
 
-<strong>Marca:</strong> IGNITE
-
-<br><br>
-
-<strong>Modelo:</strong> V80
-
-<br><br>
-
-<strong>Autonomia:</strong> Até 8.000 puffs 💨
-
-<br><br>
-
-<strong>Preço informado:</strong> R$ 75,00
+    O IGNITE V80 possui design moderno e compacto,
+    oferecendo praticidade e um visual premium.
 
 </div>
 
 </div>
 
-
-<!-- =========================
-     DÚVIDAS
-========================= -->
 
 <div class="info">
 
-<button onclick="abrirInfo(this)">
+<button onclick="toggleInfo(this)">
 
-<span class="info-titulo">
+    <span class="info-titulo">
 
-<span class="info-icone">
-?
-</span>
+        <span class="info-icone">
+            ⚙
+        </span>
 
-Dúvidas frequentes
+        Informações principais
 
-</span>
+    </span>
 
-<span class="seta">
-⌄
-</span>
+    <span class="seta">
+        ↓
+    </span>
 
 </button>
 
+<div class="conteudo">
+
+    <strong>Marca:</strong> IGNITE<br>
+    <strong>Modelo:</strong> V80<br>
+    <strong>Autonomia:</strong> 8.000 puffs<br>
+    <strong>Preço:</strong> R$ 75,00
+
+</div>
+
+</div>
+
+
+<div class="info">
+
+<button onclick="toggleInfo(this)">
+
+    <span class="info-titulo">
+
+        <span class="info-icone">
+            ?
+        </span>
+
+        Dúvidas frequentes
+
+    </span>
+
+    <span class="seta">
+        ↓
+    </span>
+
+</button>
 
 <div class="conteudo">
 
-Para dúvidas sobre características ou outras
-informações apresentadas nesta página,
-consulte a POD ZONE pelos canais de
-atendimento disponíveis.
+    Entre em contato com a POD ZONE para consultar
+    informações adicionais sobre disponibilidade,
+    sabores e demais características.
 
 </div>
 
@@ -1147,48 +1139,45 @@ atendimento disponíveis.
 <section class="destaques">
 
 
-<!-- PUFFS -->
+<div class="card">
+
+    <div class="card-icon">
+        ✓
+    </div>
+
+    <div>
+
+        <strong>
+            Produto original
+        </strong>
+
+        <p>
+            Produto apresentado pela POD ZONE.
+        </p>
+
+    </div>
+
+</div>
+
 
 <div class="card">
 
-<div class="card-icon">
-💨
-</div>
+    <div class="card-icon">
+        ⚡
+    </div>
 
-<div>
+    <div>
 
-<strong>
-8.000 PUFFS
-</strong>
+        <strong>
+            Compra fácil
+        </strong>
 
-<p>
-Autonomia informada para o modelo V80.
-</p>
+        <p>
+            Entre em contato para consultar
+            disponibilidade.
+        </p>
 
-</div>
-
-</div>
-
-
-<!-- INFORMAÇÕES -->
-
-<div class="card">
-
-<div class="card-icon">
-ℹ️
-</div>
-
-<div>
-
-<strong>
-INFORMAÇÕES
-</strong>
-
-<p>
-Consulte os detalhes disponíveis na página.
-</p>
-
-</div>
+    </div>
 
 </div>
 
@@ -1200,39 +1189,33 @@ Consulte os detalhes disponíveis na página.
      BANNER
 ========================= -->
 
-<section class="banner">
-
+<div class="banner">
 
 <div class="banner-conteudo">
 
+    <div class="banner-logo">
 
-<div class="banner-logo">
+        POD
+        <span>ZONE</span>
 
-POD <span>ZONE</span>
+    </div>
 
-</div>
+    <h2>
 
+        MAIS QUE PODS,<br>
+        UM ESTILO DE VIDA.
 
-<h2>
+    </h2>
 
-SEU ESTILO.<br>
+    <p>
 
-SUA ZONE.
+        VAPE • POD • LIFESTYLE
 
-</h2>
-
-
-<p>
-
-VAPE • POD • LIFESTYLE
-
-</p>
-
+    </p>
 
 </div>
 
-
-</section>
+</div>
 
 
 </main>
@@ -1244,38 +1227,59 @@ VAPE • POD • LIFESTYLE
 
 <footer>
 
-
 <div class="footer-logo">
 
-POD <span>ZONE</span>
+    POD
+    <span>ZONE</span>
 
 </div>
 
-
 <p>
 
-© 2026 PodZone. Todos os direitos reservados.
+    © 2026 POD ZONE.
+    Todos os direitos reservados.
 
 </p>
-
 
 </footer>
 
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
+
+function toggleInfo(button) {
+
+    const info = button.parentElement;
+
+    info.classList.toggle("aberto");
+
+}
 
 
 /* =========================
-   ABRIR INFORMAÇÕES
+   FECHAR OUTROS ACCORDIONS
 ========================= */
 
-function abrirInfo(botao) {
+document.querySelectorAll(".info button").forEach(button => {
 
-    const caixa = botao.parentElement;
+    button.addEventListener("click", function() {
 
-    caixa.classList.toggle("aberto");
+        document.querySelectorAll(".info").forEach(item => {
 
-}
+            if (item !== this.parentElement) {
+
+                item.classList.remove("aberto");
+
+            }
+
+        });
+
+    });
+
+});
 
 </script>
 
