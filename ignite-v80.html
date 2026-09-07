@@ -25,21 +25,14 @@ html {
 }
 
 body {
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            rgba(212,175,55,0.08),
-            transparent 30%
-        ),
-        #050505;
-
+    background: #050505;
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 
 /* =========================
-   VARIÁVEIS
+   CORES
 ========================= */
 
 :root {
@@ -50,7 +43,7 @@ body {
     --black: #050505;
     --card: #0d0d0d;
     --border: #292929;
-    --gray: #a8a8a8;
+    --gray: #999;
 }
 
 
@@ -59,18 +52,15 @@ body {
 ========================= */
 
 header {
-
-    height: 75px;
+    height: 68px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    position: relative;
+    background: rgba(0,0,0,.97);
 
     border-bottom: 1px solid #222;
-
-    background: rgba(0,0,0,0.95);
 
     position: sticky;
     top: 0;
@@ -78,33 +68,31 @@ header {
 }
 
 .logo {
-
-    width: 125px;
-
+    width: 105px;
+    height: auto;
     display: block;
+    object-fit: contain;
 }
 
-.menu-btn {
-
+.menu {
     position: absolute;
-    left: 20px;
-
-    font-size: 27px;
+    left: 18px;
 
     color: white;
 
     text-decoration: none;
+
+    font-size: 25px;
 
     line-height: 1;
 }
 
 
 /* =========================
-   CONTEÚDO
+   CONTAINER
 ========================= */
 
 .container {
-
     width: 100%;
     max-width: 1100px;
 
@@ -115,32 +103,33 @@ header {
 
 
 /* =========================
-   BREADCRUMB
+   CAMINHO
 ========================= */
 
 .breadcrumb {
-
     display: flex;
     align-items: center;
-    gap: 8px;
 
-    padding: 20px 2px;
+    gap: 7px;
 
-    font-size: 13px;
+    padding: 20px 0;
 
-    color: #888;
+    color: #777;
+
+    font-size: 12px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
 }
 
 .breadcrumb a {
-
     color: var(--gold-light);
-
     text-decoration: none;
 }
 
 .breadcrumb strong {
-
-    color: white;
+    color: #ddd;
 }
 
 
@@ -149,12 +138,11 @@ header {
 ========================= */
 
 .produto {
-
     display: grid;
 
     grid-template-columns: 1fr 1fr;
 
-    gap: 35px;
+    gap: 40px;
 
     align-items: center;
 }
@@ -165,19 +153,19 @@ header {
 ========================= */
 
 .imagem-box {
-
-    min-height: 500px;
+    height: 510px;
 
     border: 1px solid #292929;
 
-    border-radius: 18px;
+    border-radius: 20px;
 
     background:
         radial-gradient(
-            circle at center,
-            rgba(212,175,55,0.18),
+            circle,
+            rgba(212,175,55,.20),
             transparent 45%
         ),
+
         #080808;
 
     display: flex;
@@ -192,7 +180,6 @@ header {
 }
 
 .imagem-box::before {
-
     content: "";
 
     position: absolute;
@@ -202,15 +189,13 @@ header {
 
     border-radius: 50%;
 
-    background: rgba(212,175,55,0.12);
+    background: rgba(212,175,55,.12);
 
     filter: blur(55px);
 }
 
 .imagem-box img {
-
     width: 100%;
-
     height: 480px;
 
     object-fit: contain;
@@ -218,30 +203,21 @@ header {
     position: relative;
 
     z-index: 2;
-
-    transition: transform .3s ease;
 }
 
-.imagem-box:hover img {
-
-    transform: scale(1.03);
-}
-
-.ampliar {
-
+.zoom {
     position: absolute;
 
-    bottom: 18px;
-
+    bottom: 15px;
     left: 50%;
 
     transform: translateX(-50%);
 
-    color: #ddd;
+    color: #777;
 
-    font-size: 13px;
+    font-size: 11px;
 
-    z-index: 5;
+    z-index: 3;
 }
 
 
@@ -250,29 +226,27 @@ header {
 ========================= */
 
 .marca {
-
     display: inline-block;
-
-    border: 1px solid var(--gold);
-
-    color: var(--gold-light);
-
-    border-radius: 7px;
 
     padding: 6px 10px;
 
-    font-size: 12px;
+    border: 1px solid var(--gold);
+
+    border-radius: 6px;
+
+    color: var(--gold-light);
+
+    font-size: 11px;
 
     font-weight: bold;
 
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
 
-    margin-bottom: 14px;
+    margin-bottom: 13px;
 }
 
 h1 {
-
-    font-size: clamp(34px, 6vw, 52px);
+    font-size: 48px;
 
     line-height: 1;
 
@@ -282,25 +256,65 @@ h1 {
 }
 
 .preco {
+    color: var(--gold-light);
 
-    font-size: 34px;
+    font-size: 32px;
 
     font-weight: 800;
 
-    color: var(--gold-light);
-
-    margin-bottom: 22px;
+    margin-bottom: 12px;
 }
 
+
+/* =========================
+   PUFFS
+========================= */
+
+.puffs {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 13px;
+
+    margin-bottom: 20px;
+
+    border-radius: 8px;
+
+    background: rgba(212,175,55,.08);
+
+    border: 1px solid rgba(212,175,55,.35);
+
+    color: var(--gold-light);
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+.puffs span {
+    color: white;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   DESCRIÇÃO
+========================= */
+
 .descricao {
+    color: #aaa;
 
-    color: #bbb;
-
-    font-size: 15px;
+    font-size: 14px;
 
     line-height: 1.7;
 
-    margin-bottom: 25px;
+    margin-bottom: 24px;
+
+    max-width: 500px;
 }
 
 
@@ -309,23 +323,17 @@ h1 {
 ========================= */
 
 .botoes {
-
     display: flex;
 
     flex-direction: column;
 
     gap: 11px;
-
-    margin-bottom: 25px;
 }
 
 .botao {
-
     width: 100%;
 
-    min-height: 56px;
-
-    border-radius: 12px;
+    min-height: 55px;
 
     display: flex;
 
@@ -333,19 +341,18 @@ h1 {
 
     justify-content: center;
 
+    border-radius: 12px;
+
     text-decoration: none;
 
     font-weight: bold;
 
-    font-size: 16px;
-
-    cursor: pointer;
+    font-size: 15px;
 
     transition: .2s;
 }
 
 .whatsapp {
-
     background:
         linear-gradient(
             135deg,
@@ -354,30 +361,24 @@ h1 {
         );
 
     color: #000;
-
-    border: none;
 }
 
 .whatsapp:hover {
-
     transform: translateY(-2px);
 
     box-shadow:
-        0 8px 25px
-        rgba(212,175,55,0.25);
+        0 8px 25px rgba(212,175,55,.20);
 }
 
-.contato {
+.voltar {
+    background: #111;
 
-    background: #151515;
-
-    color: white;
+    color: #fff;
 
     border: 1px solid #333;
 }
 
-.contato:hover {
-
+.voltar:hover {
     border-color: var(--gold);
 }
 
@@ -387,105 +388,92 @@ h1 {
 ========================= */
 
 .beneficios {
-
     display: grid;
 
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
+
+    margin-top: 22px;
+
+    padding: 17px 0;
 
     border-top: 1px solid #252525;
 
     border-bottom: 1px solid #252525;
-
-    padding: 18px 0;
 }
 
 .beneficio {
-
     text-align: center;
 
-    padding: 0 10px;
-
     border-right: 1px solid #252525;
+
+    padding: 0 7px;
 }
 
 .beneficio:last-child {
-
     border-right: none;
 }
 
 .icone {
-
-    font-size: 23px;
+    font-size: 21px;
 
     color: var(--gold-light);
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 }
 
 .beneficio strong {
-
     display: block;
 
-    font-size: 12px;
+    font-size: 10px;
 
     margin-bottom: 4px;
 }
 
 .beneficio span {
+    color: #777;
 
-    color: #888;
-
-    font-size: 10px;
+    font-size: 9px;
 }
 
 
 /* =========================
-   SEÇÕES
+   INFORMAÇÕES
 ========================= */
 
-.secoes {
-
-    margin-top: 30px;
+.informacoes {
+    margin-top: 35px;
 }
 
-.info-box {
-
-    background:
-        linear-gradient(
-            135deg,
-            #0d0d0d,
-            #090909
-        );
+.info {
+    background: #0c0c0c;
 
     border: 1px solid #292929;
 
-    border-radius: 15px;
+    border-radius: 14px;
 
     margin-bottom: 10px;
 
     overflow: hidden;
 }
 
-.info-titulo {
-
+.info button {
     width: 100%;
 
-    padding: 20px;
+    padding: 19px;
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    background: transparent;
+    background: none;
 
     border: none;
 
     color: white;
 
-    font-size: 17px;
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 15px;
 
     font-weight: bold;
 
@@ -494,52 +482,100 @@ h1 {
     text-align: left;
 }
 
-.info-titulo .esquerda {
-
+.info-titulo {
     display: flex;
 
     align-items: center;
 
-    gap: 13px;
+    gap: 12px;
 }
 
 .info-icone {
-
     color: var(--gold-light);
 
-    font-size: 22px;
+    font-size: 19px;
 }
 
 .seta {
-
     color: var(--gold-light);
 
-    font-size: 20px;
-
-    transition: .25s;
+    transition: .2s;
 }
 
-.info-conteudo {
-
+.conteudo {
     display: none;
 
-    padding: 0 20px 22px;
+    padding: 0 19px 20px;
 
-    color: #aaa;
+    color: #999;
+
+    font-size: 13px;
 
     line-height: 1.7;
-
-    font-size: 14px;
 }
 
-.info-box.aberto .info-conteudo {
-
+.info.aberto .conteudo {
     display: block;
 }
 
-.info-box.aberto .seta {
-
+.info.aberto .seta {
     transform: rotate(180deg);
+}
+
+
+/* =========================
+   CARDS DE DESTAQUE
+========================= */
+
+.destaques {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 12px;
+
+    margin-top: 25px;
+}
+
+.card {
+    padding: 22px 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111,
+            #090909
+        );
+
+    border: 1px solid #252525;
+
+    border-radius: 13px;
+
+    text-align: center;
+}
+
+.card-icon {
+    font-size: 25px;
+
+    color: var(--gold-light);
+
+    margin-bottom: 10px;
+}
+
+.card strong {
+    display: block;
+
+    font-size: 13px;
+
+    margin-bottom: 6px;
+}
+
+.card p {
+    color: #777;
+
+    font-size: 10px;
+
+    line-height: 1.5;
 }
 
 
@@ -548,72 +584,61 @@ h1 {
 ========================= */
 
 .banner {
-
     margin-top: 30px;
 
     min-height: 210px;
 
-    border: 1px solid #292929;
+    padding: 30px;
 
     border-radius: 17px;
 
-    overflow: hidden;
+    border: 1px solid #292929;
 
     position: relative;
 
+    overflow: hidden;
+
     background:
         radial-gradient(
-            circle at 80% 50%,
-            rgba(212,175,55,0.28),
+            circle at 85% 50%,
+            rgba(212,175,55,.25),
             transparent 35%
         ),
+
         linear-gradient(
             110deg,
             #050505,
             #111,
             #050505
         );
-
-    display: flex;
-
-    align-items: center;
-
-    padding: 30px;
 }
 
 .banner::after {
-
     content: "";
 
     position: absolute;
 
+    width: 250px;
+    height: 250px;
+
     right: -80px;
-
-    bottom: -100px;
-
-    width: 280px;
-
-    height: 280px;
+    bottom: -120px;
 
     border-radius: 50%;
 
-    background: rgba(212,175,55,0.10);
+    background: rgba(212,175,55,.10);
 
     filter: blur(30px);
 }
 
 .banner-conteudo {
-
     position: relative;
 
     z-index: 2;
-
-    max-width: 600px;
 }
 
 .banner-logo {
-
-    font-size: 34px;
+    font-size: 30px;
 
     font-weight: 900;
 
@@ -623,26 +648,23 @@ h1 {
 }
 
 .banner-logo span {
-
     color: var(--gold-light);
 }
 
 .banner h2 {
-
     color: var(--gold-light);
 
-    font-size: 23px;
+    font-size: 22px;
 
     line-height: 1.25;
 
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .banner p {
+    color: #777;
 
-    color: #999;
-
-    font-size: 11px;
+    font-size: 10px;
 
     letter-spacing: 3px;
 }
@@ -653,31 +675,16 @@ h1 {
 ========================= */
 
 footer {
-
     border-top: 1px solid #222;
 
-    padding: 30px 18px 45px;
-
     background: #030303;
-}
 
-.footer-inner {
+    padding: 30px 18px 40px;
 
-    max-width: 1100px;
-
-    margin: auto;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
-
-    gap: 20px;
+    text-align: center;
 }
 
 .footer-logo {
-
     font-size: 27px;
 
     font-weight: 900;
@@ -686,42 +693,15 @@ footer {
 }
 
 .footer-logo span {
-
     color: var(--gold-light);
 }
 
-.footer-links {
-
-    display: flex;
-
-    gap: 22px;
-}
-
-.footer-links a {
-
-    color: #bbb;
-
-    text-decoration: none;
-
-    font-size: 13px;
-}
-
-.footer-links a:hover {
-
-    color: var(--gold-light);
-}
-
-.copyright {
-
-    max-width: 1100px;
-
-    margin: 25px auto 0;
+footer p {
+    margin-top: 12px;
 
     color: #555;
 
-    font-size: 11px;
-
-    text-align: center;
+    font-size: 10px;
 }
 
 
@@ -732,156 +712,98 @@ footer {
 @media (max-width: 699px) {
 
     header {
-
         height: 68px;
     }
 
     .logo {
-
-        width: 112px;
-    }
-
-    .menu-btn {
-
-        left: 18px;
-
-        font-size: 25px;
+        width: 95px;
+        height: auto;
     }
 
     .container {
-
         padding: 0 15px 45px;
     }
 
     .breadcrumb {
-
-        padding: 18px 2px;
-
-        font-size: 12px;
+        font-size: 11px;
     }
 
     .produto {
-
         display: flex;
 
         flex-direction: column;
 
         gap: 25px;
-
-        align-items: stretch;
     }
 
     .imagem-box {
+        height: 390px;
 
-        min-height: 390px;
-
-        border-radius: 16px;
+        border-radius: 17px;
     }
 
     .imagem-box img {
-
-        height: 380px;
-    }
-
-    .ampliar {
-
-        font-size: 12px;
-    }
-
-    .produto-info {
-
-        width: 100%;
+        height: 370px;
     }
 
     h1 {
-
         font-size: 38px;
-
-        margin-bottom: 10px;
     }
 
     .preco {
-
-        font-size: 31px;
+        font-size: 30px;
     }
 
     .descricao {
-
-        font-size: 14px;
-
-        line-height: 1.65;
-    }
-
-    .beneficios {
-
-        margin-top: 5px;
-
-        padding: 16px 0;
-    }
-
-    .beneficio {
-
-        padding: 0 5px;
-    }
-
-    .icone {
-
-        font-size: 20px;
-    }
-
-    .beneficio strong {
-
-        font-size: 10px;
-    }
-
-    .beneficio span {
-
-        display: none;
-    }
-
-    .info-titulo {
-
-        padding: 18px;
-
-        font-size: 15px;
-    }
-
-    .info-conteudo {
-
-        padding: 0 18px 20px;
-
         font-size: 13px;
     }
 
-    .banner {
+    .beneficios {
+        margin-top: 18px;
+    }
 
-        min-height: 190px;
+    .beneficio strong {
+        font-size: 9px;
+    }
+
+    .beneficio span {
+        display: none;
+    }
+
+    .destaques {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        display: flex;
+
+        align-items: center;
+
+        gap: 15px;
+
+        text-align: left;
+
+        padding: 17px;
+    }
+
+    .card-icon {
+        margin: 0;
+
+        font-size: 22px;
+    }
+
+    .banner {
+        min-height: 185px;
 
         padding: 25px 20px;
     }
 
     .banner-logo {
-
-        font-size: 29px;
+        font-size: 27px;
     }
 
     .banner h2 {
-
-        font-size: 20px;
-    }
-
-    .footer-inner {
-
-        flex-direction: column;
-
-        text-align: center;
-    }
-
-    .footer-links {
-
-        flex-wrap: wrap;
-
-        justify-content: center;
+        font-size: 19px;
     }
 
 }
@@ -893,8 +815,7 @@ footer {
 
 @media (min-width: 700px) {
 
-    .menu-btn {
-
+    .menu {
         display: none;
     }
 
@@ -916,17 +837,17 @@ footer {
 
 <a
 href="index.html"
-class="menu-btn"
-aria-label="Voltar">
+class="menu">
 
 ←
 
 </a>
 
+
 <a href="index.html">
 
 <img
-src="0C425A9F-032A-4798-B3DF-47E8A5E23C3A.png"
+src="podzone-logo.png"
 class="logo"
 alt="POD ZONE">
 
@@ -942,7 +863,7 @@ alt="POD ZONE">
 <main class="container">
 
 
-<!-- BREADCRUMB -->
+<!-- CAMINHO -->
 
 <div class="breadcrumb">
 
@@ -960,17 +881,19 @@ Voltar
 
 <span>›</span>
 
-<strong>Ignite V80</strong>
+<strong>IGNITE V80</strong>
 
 </div>
 
 
-<!-- PRODUTO -->
+<!-- =========================
+     PRODUTO
+========================= -->
 
 <section class="produto">
 
 
-<!-- FOTO -->
+<!-- IMAGEM -->
 
 <div class="imagem-box">
 
@@ -978,8 +901,8 @@ Voltar
 src="FEE94CF7-D277-4C39-93B1-54827C90ADE1.png"
 alt="IGNITE V80">
 
-<div class="ampliar">
-⌕ Toque para ampliar
+<div class="zoom">
+IGNITE V80
 </div>
 
 </div>
@@ -987,7 +910,7 @@ alt="IGNITE V80">
 
 <!-- INFORMAÇÕES -->
 
-<div class="produto-info">
+<div>
 
 
 <div class="marca">
@@ -1005,11 +928,22 @@ R$ 75,00
 </div>
 
 
+<div class="puffs">
+
+💨
+
+<strong>8.000 PUFFS</strong>
+
+<span>de autonomia</span>
+
+</div>
+
+
 <p class="descricao">
 
-Conheça o IGNITE V80 e confira as informações
-do produto. Para dúvidas sobre disponibilidade,
-sabores ou outros detalhes, fale diretamente
+Conheça o IGNITE V80 e confira as principais
+informações do produto. Para dúvidas sobre
+disponibilidade e detalhes, entre em contato
 com a POD ZONE.
 
 </p>
@@ -1023,14 +957,14 @@ href="#"
 class="botao whatsapp"
 onclick="falarWhatsApp(); return false;">
 
-◉ &nbsp; Falar pelo WhatsApp &nbsp; ›
+💬 &nbsp; Falar pelo WhatsApp &nbsp; ›
 
 </a>
 
 
 <a
 href="index.html"
-class="botao contato">
+class="botao voltar">
 
 ← &nbsp; Voltar para produtos
 
@@ -1048,7 +982,7 @@ class="botao contato">
 <div class="beneficio">
 
 <div class="icone">
-♢
+◇
 </div>
 
 <strong>
@@ -1082,7 +1016,7 @@ Consulte condições
 <div class="beneficio">
 
 <div class="icone">
-♧
+◎
 </div>
 
 <strong>
@@ -1108,18 +1042,16 @@ Personalizado
      INFORMAÇÕES
 ========================= -->
 
-<section class="secoes">
+<section class="informacoes">
 
 
 <!-- SOBRE -->
 
-<div class="info-box aberto">
+<div class="info aberto">
 
-<button
-class="info-titulo"
-onclick="abrirInfo(this)">
+<button onclick="abrirInfo(this)">
 
-<span class="esquerda">
+<span class="info-titulo">
 
 <span class="info-icone">
 ▤
@@ -1136,14 +1068,16 @@ Sobre o produto
 </button>
 
 
-<div class="info-conteudo">
+<div class="conteudo">
 
-O IGNITE V80 é apresentado nesta página
-com suas principais informações para facilitar
-a consulta do produto.
+O IGNITE V80 é um produto da linha IGNITE,
+apresentado pela POD ZONE com informações
+sobre o modelo e sua autonomia.
 
-Para informações atualizadas sobre disponibilidade,
-consulte diretamente a POD ZONE.
+<br><br>
+
+O modelo possui capacidade de até
+<strong>8.000 puffs 💨</strong>.
 
 </div>
 
@@ -1152,19 +1086,17 @@ consulte diretamente a POD ZONE.
 
 <!-- ESPECIFICAÇÕES -->
 
-<div class="info-box">
+<div class="info">
 
-<button
-class="info-titulo"
-onclick="abrirInfo(this)">
+<button onclick="abrirInfo(this)">
 
-<span class="esquerda">
+<span class="info-titulo">
 
 <span class="info-icone">
 ⚙
 </span>
 
-Especificações
+Informações principais
 
 </span>
 
@@ -1175,13 +1107,21 @@ Especificações
 </button>
 
 
-<div class="info-conteudo">
+<div class="conteudo">
 
-<strong>Produto:</strong> IGNITE V80<br><br>
+<strong>Marca:</strong> IGNITE
 
-<strong>Marca:</strong> IGNITE<br><br>
+<br><br>
 
-<strong>Preço exibido:</strong> R$ 75,00
+<strong>Modelo:</strong> V80
+
+<br><br>
+
+<strong>Autonomia:</strong> Até 8.000 puffs 💨
+
+<br><br>
+
+<strong>Preço:</strong> R$ 75,00
 
 </div>
 
@@ -1190,13 +1130,11 @@ Especificações
 
 <!-- DÚVIDAS -->
 
-<div class="info-box">
+<div class="info">
 
-<button
-class="info-titulo"
-onclick="abrirInfo(this)">
+<button onclick="abrirInfo(this)">
 
-<span class="esquerda">
+<span class="info-titulo">
 
 <span class="info-icone">
 ?
@@ -1213,13 +1151,11 @@ Dúvidas frequentes
 </button>
 
 
-<div class="info-conteudo">
+<div class="conteudo">
 
-Tem alguma dúvida sobre o produto?
-
-Entre em contato com a POD ZONE pelo WhatsApp
-para consultar informações sobre disponibilidade
-e detalhes do produto.
+Para dúvidas sobre o produto, disponibilidade
+ou outras informações, entre em contato
+diretamente com a POD ZONE pelo WhatsApp.
 
 </div>
 
@@ -1230,14 +1166,86 @@ e detalhes do produto.
 
 
 <!-- =========================
-     BANNER POD ZONE
+     DESTAQUES
+========================= -->
+
+<section class="destaques">
+
+
+<div class="card">
+
+<div class="card-icon">
+💨
+</div>
+
+<div>
+
+<strong>
+8.000 PUFFS
+</strong>
+
+<p>
+Autonomia informada para o modelo V80.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+◇
+</div>
+
+<div>
+
+<strong>
+QUALIDADE
+</strong>
+
+<p>
+Produto apresentado pela POD ZONE.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">
+📲
+</div>
+
+<div>
+
+<strong>
+SUPORTE
+</strong>
+
+<p>
+Atendimento direto pelo WhatsApp.
+</p>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+<!-- =========================
+     BANNER
 ========================= -->
 
 <section class="banner">
 
 
 <div class="banner-conteudo">
-
 
 <div class="banner-logo">
 
@@ -1248,20 +1256,20 @@ POD <span>ZONE</span>
 
 <h2>
 
-MAIS QUE PODS,<br>
-UM ESTILO DE VIDA.
+SEU ESTILO.<br>
+SUA ZONE.
 
 </h2>
 
 
 <p>
 
-VAPE &nbsp; • &nbsp; POD &nbsp; • &nbsp; LIFESTYLE
+VAPE • POD • LIFESTYLE
 
 </p>
 
-
 </div>
+
 
 </section>
 
@@ -1275,54 +1283,20 @@ VAPE &nbsp; • &nbsp; POD &nbsp; • &nbsp; LIFESTYLE
 
 <footer>
 
-
-<div class="footer-inner">
-
-
 <div class="footer-logo">
 
 POD <span>ZONE</span>
 
 </div>
 
-
-<div class="footer-links">
-
-<a href="index.html">
-Início
-</a>
-
-<a href="index.html#produtos">
-Produtos
-</a>
-
-<a href="#">
-Sobre nós
-</a>
-
-<a href="#">
-Contato
-</a>
-
-</div>
-
-
-</div>
-
-
-<div class="copyright">
+<p>
 
 © 2026 PodZone. Todos os direitos reservados.
 
-</div>
-
+</p>
 
 </footer>
 
-
-<!-- =========================
-     JAVASCRIPT
-========================= -->
 
 <script>
 
@@ -1354,7 +1328,7 @@ function falarWhatsApp() {
 
 
 /* =========================
-   ABRIR / FECHAR INFORMAÇÕES
+   ABRIR INFORMAÇÕES
 ========================= */
 
 function abrirInfo(botao) {
